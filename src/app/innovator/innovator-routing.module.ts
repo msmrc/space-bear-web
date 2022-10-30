@@ -5,6 +5,9 @@ import { InnovatorComponent } from './innovator.component';
 const routes: Routes = [{
   path: '',
   component: InnovatorComponent,
+  children: [
+
+  ]
 }];
 
 @NgModule({

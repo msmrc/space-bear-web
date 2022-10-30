@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "./app/shared/styles/normolize";
+@import "./app/shared/styles/reset";
+
+:root {
+  --primary: #F6623E;
+  --accent: #FF7351;
+  --quaternary: #FFF4EC;
+  --gray: #F4F4F4;
+  --main-gradient: linear-gradient(92.67deg, #F5B251 0%, #EE6A71 128.04%);
+  --black: #000000;
+  --white: #FFFFFF;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}

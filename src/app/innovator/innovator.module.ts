@@ -4,10 +4,12 @@ import { InnovatorComponent } from './innovator.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/modules/material.module';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
-    InnovatorComponent
+    InnovatorComponent,
+    HeaderComponent
   ],
   imports: [
     InnovatorRoutingModule,

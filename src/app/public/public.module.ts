@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 // Material
 import { MaterialModule } from '../shared/modules/material.module';
+import { PublicHeaderModule } from '../shared/modules/public-header/public-header.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MaterialModule } from '../shared/modules/material.module';
     FormsModule,
     ReactiveFormsModule,
     // Material
-    MaterialModule
+    MaterialModule,
+    PublicHeaderModule
   ],
   providers: []
 })

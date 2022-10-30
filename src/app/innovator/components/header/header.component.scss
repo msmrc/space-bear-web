@@ -1,0 +1,73 @@
+.header {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 0px 0px 40px 40px;
+  padding: 28px;
+
+  .nav {
+    max-width: 1440px;
+    padding: 0 84px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      img {}
+    }
+
+    .links {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+
+
+      &__item {
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        /* identical to box height, or 143% */
+
+
+        color: #000000;
+
+        &.active {
+          font-weight: 800;
+          font-size: 14px;
+          line-height: 20px;
+          /* identical to box height, or 143% */
+
+
+          /* Accent-primary */
+
+          color: #FF7351;
+
+        }
+      }
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+
+      .avatar {
+        img {}
+      }
+
+      .fio {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .arrow {}
+      }
+
+
+    }
+  }
+}

@@ -1,89 +1,98 @@
-<h1>Регистрация</h1>
-<form class="form" [formGroup]="form" (ngSubmit)="create()">
-  <h3 class="title">Регистрация</h3>
-  <div class="fields">
-    <mat-form-field class="field_register" appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" class="w-field" />
-    </mat-form-field>
-    <mat-form-field class="field_register" appearance="fill">
-      <mat-label>Пароль</mat-label>
-      <input
-        (input)="onPasswordInput()"
-        matInput
-        [type]="hidePassword ? 'password' : 'text'"
-        formControlName="password"
-        class="w-field"
-      />
-      <button
-        type="button"
-        mat-icon-button
-        matSuffix
-        (click)="hidePassword = !hidePassword"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hidePassword"
-      >
-        <mat-icon>{{
-          hidePassword ? "visibility_off" : "visibility"
-        }}</mat-icon>
-      </button>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Подтвердите Пароль</mat-label>
-      <input
-        matInput
-        [type]="hideConfirmPassword ? 'password' : 'text'"
-        formControlName="confirmPassword"
-        (input)="onPasswordInput()"
-        class="w-field"
-      />
-      <button
-        type="button"
-        mat-icon-button
-        matSuffix
-        (click)="hideConfirmPassword = !hideConfirmPassword"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hideConfirmPassword"
-      >
-        <mat-icon>{{
-          hideConfirmPassword ? "visibility_off" : "visibility"
-        }}</mat-icon>
-      </button>
-      <mat-error
-        *ngIf="
-          confirmPassword?.invalid && !confirmPassword?.hasError('required')
-        "
-        >Ошибка! Пароли не совпадают</mat-error
-      >
-    </mat-form-field>
+<div class="auth">
+  <div class="auth-header">
+    <img src="../../../../assets/images/logo.svg" alt="" />
+    <p>Пожалуйста, введите Ваши данные</p>
   </div>
+  <form class="form" [formGroup]="form">
+    <h3 class="title">Регистрация</h3>
+    <div class="fields">
+      <mat-form-field class="field_register" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" class="w-field" />
+      </mat-form-field>
+      <mat-form-field class="field_register" appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input
+          (input)="onPasswordInput()"
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          class="w-field"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
+          <mat-icon>{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Подтвердите Пароль</mat-label>
+        <input
+          matInput
+          [type]="hideConfirmPassword ? 'password' : 'text'"
+          formControlName="confirmPassword"
+          (input)="onPasswordInput()"
+          class="w-field"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hideConfirmPassword = !hideConfirmPassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hideConfirmPassword"
+        >
+          <mat-icon>{{
+            hideConfirmPassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="
+            confirmPassword?.invalid && !confirmPassword?.hasError('required')
+          "
+          >Ошибка! Пароли не совпадают</mat-error
+        >
+      </mat-form-field>
+    </div>
 
-  <div class="terms">
-    <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
-    <p class="terms_text">
-      Я согласен с условиями использования и пользовательским соглашением
-      <!-- <a class="link" [routerLink]="['/public/terms']" target="_blank">Terms</a
+    <div class="terms">
+      <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
+      <p class="terms_text">
+        Я согласен с условиями использования и пользовательским соглашением
+        <!-- <a class="link" [routerLink]="['/public/terms']" target="_blank">Terms</a
       > -->
-      .
-    </p>
+        .
+      </p>
+    </div>
+  </form>
+  <div class="buttons">
+    <button
+      (click)="create()"
+      mat-raised-button
+      color="accent"
+      class="max-width"
+      [disabled]="
+        form.invalid ||
+        (isLoadingForm$ | async) ||
+        form.get('acceptTerms')?.value !== true
+      "
+    >
+      <span *ngIf="isLoadingForm$ | async" class="btn_spinner">
+        <mat-icon
+          ><mat-spinner color="warn" diameter="18"></mat-spinner
+        ></mat-icon>
+      </span>
+      Создать аккаунт
+    </button>
+    <div class="registration">
+      <a [routerLink]="['/auth/login']">У меня есть аккаунт </a>
+    </div>
   </div>
-
-  <button
-    class="btn btn_primary"
-    type="submit"
-    [disabled]="
-      form.invalid ||
-      (isLoadingForm$ | async) ||
-      form.get('acceptTerms')?.value !== true
-    "
-  >
-    <span *ngIf="isLoadingForm$ | async" class="btn_spinner">
-      <mat-icon
-        ><mat-spinner color="warn" diameter="18"></mat-spinner
-      ></mat-icon>
-    </span>
-    Создать аккаунт
-  </button>
-
-  <a class="login" [routerLink]="['/auth/login']"> У меня есть аккаунт </a>
-</form>
+</div>

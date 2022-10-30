@@ -19,6 +19,6 @@ export class SystemUserService {
     this.appStore.setUser(null);
     localStorage.clear();
     // TODO: Need to find a BUG with logout
-    this.router.navigate(['/login']); //.then(() => window.location.reload());
+    this.router.navigate(['/auth/login']); //.then(() => window.location.reload());
   }
 }

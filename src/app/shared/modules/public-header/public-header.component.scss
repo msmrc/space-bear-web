@@ -1,0 +1,17 @@
+.public-header {
+  max-width: 1440px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+  margin: auto;
+  padding: 40px 80px;
+
+  .logo {
+    cursor: pointer;
+  }
+
+  .action {
+    z-index: 5;
+  }
+}

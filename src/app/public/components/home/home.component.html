@@ -1,17 +1,85 @@
-<div class="">
-  <h3>Посадочная страница</h3>
+<div class="home">
+  <div class="image">
+    <img
+      src="../../../../assets/images/hero-section.png"
+      alt="Картинка с медведем"
+    />
+  </div>
+  <div class="promo">
+    <h1 class="title">SpaceBear</h1>
+    <p class="subtitle">
+      Ваш надежный виртуальный помощник для поиска единомышленников и обмена
+      идеями.
+    </p>
 
-  <img alt="Картинка с медведем" />
-  <p>Space Bear - проект для поиска единомышленников и обмена идеями</p>
+    <div class="feature-list">
+      <div class="feature">
+        <div class="icon">
+          <img src="../../../../assets/icons/zer.svg" alt="" srcset="" />
+        </div>
+        <p class="description">Уникальная нейронная сеть на основе NLP</p>
+      </div>
 
-  <div class="home__cta">
-    <button mat-raised-button [routerLink]="['/auth/login']">Войти</button>
-    <button
-      mat-raised-button
-      color="accent"
-      [routerLink]="['/auth/registration']"
-    >
-      Зарегистрироваться
-    </button>
+      <div class="feature">
+        <div class="icon">
+          <img src="../../../../assets/icons/zer.svg" alt="" srcset="" />
+        </div>
+        <p class="description">Привлекайте сильных специалистов в проекты</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">
+          <img src="../../../../assets/icons/zer.svg" alt="" srcset="" />
+        </div>
+        <p class="description">
+          Рекомендательная система на основе машинного обучения
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">
+          <img src="../../../../assets/icons/zer.svg" alt="" srcset="" />
+        </div>
+        <p class="description">Участвуйте в битве идей</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">
+          <img src="../../../../assets/icons/zer.svg" alt="" srcset="" />
+        </div>
+        <p class="description">Объединяйтесь в команды</p>
+      </div>
+
+      <div class="feature">
+        <div class="icon">
+          <img src="../../../../assets/icons/zer.svg" alt="" srcset="" />
+        </div>
+        <p class="description">Делитесь успехами проекта</p>
+      </div>
+    </div>
+    <div class="home__cta">
+      <button
+        mat-raised-button
+        color="accent"
+        [routerLink]="['/auth/registration']"
+        class="max-width"
+      >
+        Создать аккаунт
+      </button>
+    </div>
+  </div>
+  <div class="glass"></div>
+  <div class="glass-ellipses">
+    <div class="ellipses">
+      <div class="elips-1">
+        <img src="../../../../assets/other/Ellipse2049.svg" alt="" srcset="" />
+      </div>
+      <div class="elips-3">
+        <img src="../../../../assets/other/Ellipse2051.svg" alt="" srcset="" />
+      </div>
+    </div>
+  </div>
+  <div class="elips-2">
+    <img src="../../../../assets/other/Ellipse2050.svg" alt="" srcset="" />
   </div>
 </div>

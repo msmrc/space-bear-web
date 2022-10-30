@@ -1,61 +1,63 @@
-<h1>Авторизация</h1>
-<form class="form" [formGroup]="form" (ngSubmit)="login()">
-  <h3 class="title">Авторизация</h3>
-
-  <div class="inputs_container">
-    <mat-form-field class="field_register" appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" formControlName="email" class="w-field" />
-    </mat-form-field>
-    <mat-form-field class="field_register" appearance="fill">
-      <mat-label>Пароль</mat-label>
-      <input
-        matInput
-        [type]="hidePassword ? 'password' : 'text'"
-        formControlName="password"
-        class="w-field"
-      />
-      <button
-        type="button"
-        mat-icon-button
-        matSuffix
-        (click)="hidePassword = !hidePassword"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hidePassword"
-      >
-        <mat-icon class="eye-icon">{{
-          hidePassword ? "visibility_off" : "visibility"
-        }}</mat-icon>
-      </button>
-    </mat-form-field>
+<div class="auth">
+  <div class="auth-header">
+    <img src="../../../../assets/images/logo.svg" alt="" />
+    <p>Пожалуйста, введите Ваши данные</p>
   </div>
+  <form class="form" [formGroup]="form">
+    <div class="inputs_container">
+      <mat-form-field class="field_register" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" class="w-field" />
+      </mat-form-field>
+      <mat-form-field class="field_register" appearance="fill">
+        <mat-label>Пароль</mat-label>
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password"
+          class="w-field"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hidePassword = !hidePassword"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
+          <mat-icon class="eye-icon">{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
 
-  <div class="forgot-password">
+    <!-- <div class="forgot-password">
     <a class="forgot-password_link" routerLink="/forgot-password">
       Забыли пароль
     </a>
-  </div>
+  </div> -->
+  </form>
 
   <div class="buttons">
     <button
       type="submit"
+      (click)="login()"
       mat-raised-button
       color="accent"
+      class="max-width"
       [disabled]="form.invalid || (isLoadingForm$ | async)"
     >
-      <span *ngIf="isLoadingForm$ | async" class="btn_spinner">
+      <span class="btn_spinner" *ngIf="isLoadingForm$ | async">
         <mat-icon
           ><mat-spinner color="warn" diameter="18"></mat-spinner
         ></mat-icon>
       </span>
       Войти
     </button>
+    <div class="registration">
+      <span class="registration_message"> Нет аккаунта? </span>
+      <a [routerLink]="['/auth/registration']">Создать аккаунт</a>
+    </div>
   </div>
-
-  <div class="registration">
-    <span class="registration_message"> Нет аккаунта? </span>
-    <span class="registration_link" [routerLink]="['/auth/registration']"
-      >Создать аккаунт</span
-    >
-  </div>
-</form>
+</div>
