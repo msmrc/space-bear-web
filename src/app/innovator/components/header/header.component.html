@@ -4,38 +4,51 @@
       <img src="../../../../assets/images/logo.svg" alt="" />
     </div>
     <div class="links">
-      <a class="links__item" [routerLink]="['/']" routerLinkActive="active"
+      <!-- <a
+        class="links__item"
+        [routerLink]="['innovator']"
+        routerLinkActive="active"
         >Главная</a
+      > -->
+      <a
+        class="links__item"
+        [routerLink]="['projects/for-me']"
+        routerLinkActive="active"
+        >Проекты для меня</a
       >
       <a
         class="links__item"
-        [routerLink]="['/projects']"
+        [routerLink]="['projects/all']"
         routerLinkActive="active"
-        >Лента Идей</a
+        >Лента Проектов</a
       >
-      <a class="links__item" [routerLink]="['/users']" routerLinkActive="active"
+      <a class="links__item" [routerLink]="['users']" routerLinkActive="active"
         >Специалисты</a
       >
-      <a class="links__item" [routerLink]="['/news']" routerLinkActive="active"
+      <a class="links__item" [routerLink]="['news']" routerLinkActive="active"
         >Новости</a
       >
       <a
         class="links__item"
         [routerLink]="['/battle']"
         routerLinkActive="active"
-        >Битва Идей</a
+        >Битва Проектов</a
       >
     </div>
-    <div class="profile">
+    <div class="profile" [matMenuTriggerFor]="menu">
       <div class="avatar">
         <img src="../../../../assets/images/avatar_user.svg" alt="" />
       </div>
       <div class="fio">
-        Михаил Марцинюк
+        spacebear-591259
         <div class="arrow">
           <img src="../../../../assets/icons/arrow_down.svg" alt="" srcset="" />
         </div>
       </div>
     </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="openProfile()">Мой профиль</button>
+      <button mat-menu-item (click)="exit()">Выход</button>
+    </mat-menu>
   </div>
 </div>

@@ -13,6 +13,7 @@ export class AppStore extends ComponentStore<AppState> {
 
   readonly user$: Observable<UserInterface | null> = this.select(state => state.user);
   readonly isExit$: Observable<boolean> = this.select(state => state.isExit);
+  readonly pageTitle$: Observable<string> = this.select(state => state.pageTitle);
 
   readonly setUser = this.updater((state, user: UserInterface | null) => ({
     ...state,
@@ -27,5 +28,10 @@ export class AppStore extends ComponentStore<AppState> {
   readonly setIsExit = this.updater((state, isExit: boolean) => ({
     ...state,
     isExit
+  }));
+
+  readonly setPageTitle = this.updater((state, pageTitle: string) => ({
+    ...state,
+    pageTitle
   }));
 }

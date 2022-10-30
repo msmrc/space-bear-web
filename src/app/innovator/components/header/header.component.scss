@@ -2,7 +2,7 @@
   width: 100%;
   background: #FFFFFF;
   border-radius: 0px 0px 40px 40px;
-  padding: 28px;
+  padding: 28px 0 28px 0;
 
   .nav {
     max-width: 1440px;
@@ -55,6 +55,8 @@
       flex-direction: row;
       gap: 16px;
 
+      cursor: pointer;
+
       .avatar {
         img {}
       }
@@ -66,8 +68,6 @@
 
         .arrow {}
       }
-
-
     }
   }
 }

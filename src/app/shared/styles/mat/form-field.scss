@@ -1,0 +1,81 @@
+mat-form-field {
+  width: 100%;
+  user-select: none;
+
+  &.mat-form-field-appearance-fill {
+    .mat-form-field-flex {
+      padding: 8px 25px 0px 10px;
+      border: 1px solid transparent;
+    }
+  }
+}
+
+.mat-form-field-invalid {
+  .mat-form-field-appearance-fill div.mat-form-field-flex {
+    border: 1px solid #FF3030;
+    background-color: #FF3030;
+  }
+
+  mat-label {
+    color: #FF3030;
+  }
+}
+
+.mat-form-field-wrapper {
+  padding: 0;
+}
+
+.mat-form-field-appearance-fill div.mat-form-field-subscript-wrapper {
+  bottom: -16px;
+  top: unset;
+  padding: 0;
+}
+
+.mat-form-field.mat-focused.mat-form-field-appearance-fill .mat-form-field-flex {
+  border: 1px solid #F6623E;
+
+  mat-label {
+    color: #F6623E;
+  }
+}
+
+.mat-form-field-appearance-fill.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-appearance-fill.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  font-size: 13px;
+  line-height: 1.23em;
+  top: 54%;
+}
+
+span.mat-form-field-label-wrapper {
+  top: -1.22em;
+  height: 20px;
+}
+
+mat-form-field.mat-form-field-appearance-fill div.mat-form-field-flex {
+  border-radius: 10px;
+  background-color: #F9FAFB;
+}
+
+mat-form-field.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0;
+  width: 100%;
+}
+
+div.mat-form-field-flex {
+  height: 50px;
+}
+
+span.mat-form-field-label-wrapper label.mat-form-field-label {
+  font-size: 17px;
+  line-height: 1.41em;
+  top: 57%;
+}
+
+span.mat-select-value-text {
+  position: relative;
+}
+
+input.mat-input-element {
+  position: relative;
+  top: 1px;
+}

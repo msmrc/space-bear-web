@@ -1,11 +1,6 @@
-.mat-form-field {
-  width: 100%;
-}
-
 mat-label {
   color: #828282;
 }
-
 .mat-placeholder-required {
   color: #828282;
 }
@@ -14,16 +9,14 @@ mat-label {
   display: none;
 }
 
-input.mat-input-element {
-
+input.mat-input-element, {
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  font-family: 'Mulish',
-  sans-serif;
+  font-family: 'Mulish', sans-serif;
 
   font-size: 17px;
   line-height: 1.41em;
@@ -31,18 +24,15 @@ input.mat-input-element {
   &.ng-dirty {
     color: #333333;
   }
-
   color: #392927;
   width: 100%;
   margin-top: -2px;
 }
-
 .input-wrapper {
   flex-wrap: wrap;
   width: 100%;
   gap: 24px;
 }
-
 input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
 }

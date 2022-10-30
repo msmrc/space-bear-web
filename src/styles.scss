@@ -22,8 +22,12 @@ body {
   margin: 0;
 }
 
+* {
+  font-family: 'Mulish';
+}
 
 .container {
   max-width: 1440px;
   margin: auto;
+  padding: 0 84px;
 }

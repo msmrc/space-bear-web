@@ -6,7 +6,15 @@ const routes: Routes = [{
   path: '',
   component: InnovatorComponent,
   children: [
-
+    { path: '', redirectTo: 'projects/for-me', pathMatch: 'full' },
+    {
+      path: 'projects',
+      loadChildren: () => import('./modules/projects/projects.module').then(m => m.ProjectsModule)
+    },
+    {
+      path: 'profile',
+      loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
+    }
   ]
 }];
 

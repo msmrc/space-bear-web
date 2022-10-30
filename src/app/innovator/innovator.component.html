@@ -1,6 +1,9 @@
 <header></header>
 <div class="innovator">
-  <router-outlet></router-outlet>
+  <div class="container">
+    <h1 class="page-title">
+      {{ title }}
+    </h1>
+    <router-outlet></router-outlet>
+  </div>
 </div>
-
-<button mat-button (click)="exit()">Exit</button>

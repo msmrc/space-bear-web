@@ -17,5 +17,18 @@
     img {
       width: 160px;
     }
+
+    p {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 25px;
+      color: #000000;
+    }
+  }
+
+  .inputs_container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }

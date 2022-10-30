@@ -1,10 +1,9 @@
 <div class="auth">
   <div class="auth-header">
     <img src="../../../../assets/images/logo.svg" alt="" />
-    <p>Пожалуйста, введите Ваши данные</p>
+    <p>Регистрация</p>
   </div>
   <form class="form" [formGroup]="form">
-    <h3 class="title">Регистрация</h3>
     <div class="fields">
       <mat-form-field class="field_register" appearance="fill">
         <mat-label>Email</mat-label>
@@ -60,16 +59,15 @@
           >Ошибка! Пароли не совпадают</mat-error
         >
       </mat-form-field>
-    </div>
-
-    <div class="terms">
-      <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
-      <p class="terms_text">
-        Я согласен с условиями использования и пользовательским соглашением
-        <!-- <a class="link" [routerLink]="['/public/terms']" target="_blank">Terms</a
+      <div class="terms">
+        <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
+        <p class="terms_text">
+          Я согласен с условиями использования и пользовательским соглашением
+          <!-- <a class="link" [routerLink]="['/public/terms']" target="_blank">Terms</a
       > -->
-        .
-      </p>
+          .
+        </p>
+      </div>
     </div>
   </form>
   <div class="buttons">

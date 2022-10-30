@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 @NgModule({
   declarations: [
     InnovatorComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     InnovatorRoutingModule,
