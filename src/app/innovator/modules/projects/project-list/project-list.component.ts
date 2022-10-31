@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { AppStore } from 'src/app/store/app.store';
 
 @Component({
@@ -10,6 +11,6 @@ export class ProjectListComponent implements OnInit {
   constructor(private appStore: AppStore) { }
 
   ngOnInit() {
-    this.appStore.setPageTitle('Лента Проектов')
+    this.appStore.setPageTitle('Лента Проектов');
   }
 }

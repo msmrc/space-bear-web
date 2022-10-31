@@ -65,6 +65,12 @@ div.mat-form-field-flex {
   height: 50px;
 }
 
+.h-100 {
+  .mat-form-field-flex {
+    height: 100%;
+  }
+}
+
 span.mat-form-field-label-wrapper label.mat-form-field-label {
   font-size: 17px;
   line-height: 1.41em;

@@ -1,0 +1,28 @@
+.pillbar-input {
+  &__body {
+    background: #F9FAFB;
+    border-radius: 10px;
+  }
+}
+
+.content {
+  &_available-pills {
+    padding: 8px;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.content_available-pills {}
+
+.selected-tags {
+  margin-top: 16px;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}

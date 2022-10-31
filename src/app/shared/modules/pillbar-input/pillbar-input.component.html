@@ -1,0 +1,51 @@
+<div>
+  <div>
+    <ng-container *ngIf="label; else standartInput">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ label }}</mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Начните вводить"
+            [(ngModel)]="searchField"
+            (ngModelChange)="searchPills()"
+            [disabled]="disabled"
+          />
+        </mat-form-field>
+      </div>
+    </ng-container>
+    <ng-template #standartInput>
+      <input
+        type="text"
+        placeholder="Начните вводить"
+        [(ngModel)]="searchField"
+        (ngModelChange)="searchPills()"
+        [disabled]="disabled"
+      />
+    </ng-template>
+    <div *ngIf="availablePills.length > 0" class="content_available-pills">
+      <div class="tags">
+        <app-tag
+          *ngFor="let pill of availablePills"
+          (click)="selectPill(pill)"
+          class="cursor-pointer"
+        >
+          <span class="">{{ pill }}</span>
+        </app-tag>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedPills.length > 0" class="selected-tags">
+    <div class="tags">
+      <app-tag
+        *ngFor="let pill of selectedPills"
+        (click)="unselectPill(pill)"
+        class="cursor-pointer"
+      >
+        <span class="">{{ pill }}</span>
+        <img src="../../../../assets/icons/close.svg" alt="" />
+      </app-tag>
+    </div>
+  </div>
+</div>

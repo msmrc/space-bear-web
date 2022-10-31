@@ -1,1 +1,132 @@
-Профайл филл
+<div class="profile-fill">
+  <div class="section">
+    <div class="info">
+      <div class="title">Основное</div>
+      <div class="description">
+        Очень важно заполнить информацию этого раздела в полном объеме, от нее
+        будет зависеть корректность подбора идей для вашей дальнейшей работы, на
+        основе Машинного Обучения
+      </div>
+    </div>
+    <div class="form">
+      <div class="form__section">
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Имя</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Фамилия</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Отчество</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Дата рождения</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Пол</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Страна</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Город</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Гражданство</mat-label>
+            <input matInput type="text" />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="header">
+        <div class="title">Расскажите немного о себе и своих целях*</div>
+      </div>
+      <div class="form__section">
+        <div class="width-100 h-100">
+          <mat-form-field appearance="fill">
+            <mat-label>Описание</mat-label>
+            <textarea
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="3"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="header">
+        <div class="title">Специальности и навыки*</div>
+        <div class="action">Удалить</div>
+      </div>
+      <div class="form__section">
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Специальность</mat-label>
+            <mat-select>
+              <mat-option value="Frontend">Frontend</mat-option>
+              <mat-option value="Backend">Backend</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="width-50">
+          <mat-form-field appearance="fill">
+            <mat-label>Опыт</mat-label>
+            <mat-select>
+              <mat-option value="senior">Senior</mat-option>
+              <mat-option value="middle">Middle</mat-option>
+              <mat-option value="junior">Junior</mat-option>
+              <mat-option value="beginner">Beginner</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="width-50">
+          <app-pillbar-input
+            label="Навыки*"
+            [possibleValues]="['C#', 'C++', '.net']"
+          ></app-pillbar-input>
+        </div>
+      </div>
+      <div class="add-role">
+        <button mat-raised-button color="accent" class="max-width">
+          Добавить роль +
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="info">
+      <div class="title">Дополнительно</div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="description">Сохраните Ваши изменения</div>
+    <div class="buttons">
+      <button mat-button>Отмена</button>
+      <button mat-raised-button color="accent">Сохранить</button>
+    </div>
+  </div>
+</div>

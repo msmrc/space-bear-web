@@ -1,3 +1,6 @@
-<div class="app">
+<div class="splash" *ngIf="isPageLoading">
+  <div class="content">Загрузка...</div>
+</div>
+<div class="app" [ngClass]="isPageLoading ? 'opacity' : ''">
   <router-outlet></router-outlet>
 </div>

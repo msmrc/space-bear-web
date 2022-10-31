@@ -13,13 +13,12 @@
     .scroll {
       height: 700px;
       overflow-y: scroll;
-
+      position: relative;
 
       .flex {
         padding: 40px;
-        height: 700px;
         display: flex;
-        justify-content: flex-end;
+
         flex-direction: column;
         gap: 24px;
 

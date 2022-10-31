@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { tap, BehaviorSubject, timer } from 'rxjs';
 import { AppStore } from './store/app.store';
 import { PersistenceService } from './tools/persistence.service';
 import { SystemUserService } from './tools/system-user.service';
@@ -7,16 +7,26 @@ import { SystemUserService } from './tools/system-user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+
+  public isPageLoading = true;
 
   constructor(
     private appStore: AppStore,
     private systemUserService: SystemUserService,
     private persistenceService: PersistenceService,
+    private cdr: ChangeDetectorRef,
   ) {
+  }
 
+  ngAfterViewInit(): void {
+    timer(2000).pipe(tap(() => {
+      this.isPageLoading = false;
+      this.cdr.detectChanges();
+    })).subscribe();
   }
 
   ngOnInit(): void {

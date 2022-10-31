@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AppStore } from 'src/app/store/app.store';
+
 
 @Component({
   selector: 'profile-fill',
@@ -7,9 +8,11 @@ import { AppStore } from 'src/app/store/app.store';
   styleUrls: ['./profile-fill.component.scss']
 })
 export class ProfileFillComponent implements OnInit {
-  constructor(private appStore: AppStore) { }
+  constructor(private appStore: AppStore) {
+  }
 
   ngOnInit() {
     this.appStore.setPageTitle('Заполнение профиля')
   }
+
 }

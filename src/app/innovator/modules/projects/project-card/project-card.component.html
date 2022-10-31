@@ -1,0 +1,92 @@
+<div class="project">
+  <div class="title">
+    <div class="name">
+      Space Bear
+      <div class="rate">
+        <div class="score">2.5к</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/rate_to_the_moon.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="show-more" (click)="switchDetails()">
+      <div class="name">{{ !isOpen ? "Раскрыть" : "Скрыть" }}</div>
+      <div class="icon">
+        <ng-container *ngIf="isOpen; else arrowDownTemplate">
+          <img src="../../../../../assets/icons/arrow_details_up.svg" alt="" />
+        </ng-container>
+        <ng-template #arrowDownTemplate>
+          <img
+            src="../../../../../assets/icons/arrow_details_down.svg"
+            alt=""
+          />
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="description">
+    Проект для поиска единомышленников и обмена идеями, разарабтывается в рамках
+    хакатона Лидеры Цифровой Трансфориации
+  </div>
+  <div class="category">Для хакатона</div>
+  <div class="required">
+    <div class="title">Требуются</div>
+    <div class="items">
+      <div class="item">Frontend</div>
+      <div class="item">Backend</div>
+      <div class="item">Менеджер проекта</div>
+    </div>
+  </div>
+  <div class="details" *ngIf="isOpen">
+    <div class="stat-items">
+      <div class="stat">
+        <div class="count">3.5к</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/eye.svg" alt="" />
+        </div>
+      </div>
+      <div class="stat">
+        <div class="count">120</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/comment.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="member" matTooltip="CEO">
+        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
+      </div>
+      <div class="member" matTooltip="Design">
+        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
+      </div>
+      <div class="member">
+        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
+      </div>
+      <div class="member">
+        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
+      </div>
+      <div class="member">
+        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
+      </div>
+    </div>
+
+    <div class="additional">
+      <div class="adv">
+        <div class="title">Особенности</div>
+        <div class="tags">
+          <div class="tag">Modern UI</div>
+          <div class="tag">Machine Learning</div>
+        </div>
+      </div>
+
+      <div class="more" (click)="openDetails()">
+        <div class="name">Подробнее</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/rate_to_the_right.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

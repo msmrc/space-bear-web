@@ -1,0 +1,19 @@
+$tag-border-color: #D9D9D9;
+
+.tag {
+  user-select: none;
+
+  height: 34px;
+  padding: 0 14px;
+  background-color: #fff;
+
+  border-radius: 6px;
+  border: 1px solid $tag-border-color;
+
+  width: fit-content;
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
