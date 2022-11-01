@@ -1,132 +1,175 @@
-<div class="profile-fill">
-  <div class="section">
-    <div class="info">
-      <div class="title">Основное</div>
-      <div class="description">
-        Очень важно заполнить информацию этого раздела в полном объеме, от нее
-        будет зависеть корректность подбора идей для вашей дальнейшей работы, на
-        основе Машинного Обучения
+<ng-container *ngIf="isLoadingForm$ | async; else contentTemplate">
+  Загрузка
+</ng-container>
+<ng-template #contentTemplate>
+  <form class="profile-fill" [formGroup]="form">
+    <div class="section">
+      <div class="info">
+        <div class="title">Основное</div>
+        <div class="description">
+          Очень важно заполнить информацию этого раздела в полном объеме, от нее
+          будет зависеть корректность подбора идей для вашей дальнейшей работы,
+          на основе Машинного Обучения
+        </div>
+      </div>
+      <div class="form">
+        <div class="form__section">
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Имя</mat-label>
+              <input matInput type="text" formControlName="firstName" />
+            </mat-form-field>
+          </div>
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Фамилия</mat-label>
+              <input matInput type="text" formControlName="secondName" />
+            </mat-form-field>
+          </div>
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Отчество</mat-label>
+              <input matInput type="text" formControlName="lastName" />
+            </mat-form-field>
+          </div>
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Дата рождения</mat-label>
+              <input matInput type="date" formControlName="birthDate" />
+            </mat-form-field>
+          </div>
+
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Пол</mat-label>
+              <mat-select formControlName="gender">
+                <mat-option value="Мужской">Мужской</mat-option>
+                <mat-option value="Женский">Женский</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Страна</mat-label>
+              <input matInput type="text" formControlName="country" />
+            </mat-form-field>
+          </div>
+
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Город</mat-label>
+              <input matInput type="text" formControlName="city" />
+            </mat-form-field>
+          </div>
+
+          <div class="width-50">
+            <mat-form-field appearance="fill">
+              <mat-label>Гражданство</mat-label>
+              <input matInput type="text" formControlName="citizenship" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="header">
+          <div class="title">Расскажите немного о себе и своих целях*</div>
+        </div>
+        <div class="form__section">
+          <div class="width-100 h-100">
+            <mat-form-field appearance="fill">
+              <mat-label>Описание</mat-label>
+              <textarea
+                matInput
+                formControlName="aboutDescription"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="3"
+              ></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="header">
+          <div class="title">
+            Выберите интересные для Вас темы, например: робототехника, финтех,
+            биотехнологии
+          </div>
+        </div>
+        <div class="form__section margins">
+          <div class="width-100">
+            <app-pillbar-input
+              formControlName="interestedTags"
+              label="Интересующие темы*"
+              [possibleValues]="tags"
+            ></app-pillbar-input>
+          </div>
+        </div>
+        <ng-container formArrayName="skillInformation">
+          <ng-container
+            *ngFor="let child of skillInformation.controls; let i = index"
+          >
+            <div [formGroupName]="i">
+              <div class="header">
+                <div class="title">Специальности и навыки*</div>
+                <div class="action" (click)="removeChild(i)">Удалить</div>
+              </div>
+              <div class="form__section">
+                <div class="width-50">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Специальность</mat-label>
+                    <mat-select formControlName="category">
+                      <mat-option
+                        *ngFor="let skillsAndCategory of skillsAndCategories"
+                        value="{{ skillsAndCategory.category }}"
+                        >{{ skillsAndCategory.category }}</mat-option
+                      >
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="width-50">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Опыт</mat-label>
+                    <mat-select formControlName="experience">
+                      <mat-option value="senior">Senior</mat-option>
+                      <mat-option value="middle">Middle</mat-option>
+                      <mat-option value="junior">Junior</mat-option>
+                      <mat-option value="beginner">Beginner</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="width-50">
+                  <app-pillbar-input
+                    formControlName="skills"
+                    label="Навыки*"
+                    [possibleValues]="getAvailbleSkills(i)"
+                  ></app-pillbar-input>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <div class="add-role">
+          <button
+            mat-raised-button
+            color="accent"
+            class="max-width"
+            (click)="addSkillInformation()"
+          >
+            Добавить роль +
+          </button>
+        </div>
       </div>
     </div>
-    <div class="form">
-      <div class="form__section">
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Имя</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Фамилия</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Отчество</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Дата рождения</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Пол</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Страна</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Город</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
-
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Гражданство</mat-label>
-            <input matInput type="text" />
-          </mat-form-field>
-        </div>
+    <div class="section">
+      <div class="info">
+        <div class="title">Дополнительно</div>
       </div>
-      <div class="header">
-        <div class="title">Расскажите немного о себе и своих целях*</div>
-      </div>
-      <div class="form__section">
-        <div class="width-100 h-100">
-          <mat-form-field appearance="fill">
-            <mat-label>Описание</mat-label>
-            <textarea
-              matInput
-              cdkTextareaAutosize
-              cdkAutosizeMinRows="3"
-            ></textarea>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="header">
-        <div class="title">Специальности и навыки*</div>
-        <div class="action">Удалить</div>
-      </div>
-      <div class="form__section">
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Специальность</mat-label>
-            <mat-select>
-              <mat-option value="Frontend">Frontend</mat-option>
-              <mat-option value="Backend">Backend</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="width-50">
-          <mat-form-field appearance="fill">
-            <mat-label>Опыт</mat-label>
-            <mat-select>
-              <mat-option value="senior">Senior</mat-option>
-              <mat-option value="middle">Middle</mat-option>
-              <mat-option value="junior">Junior</mat-option>
-              <mat-option value="beginner">Beginner</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-        <div class="width-50">
-          <app-pillbar-input
-            label="Навыки*"
-            [possibleValues]="['C#', 'C++', '.net']"
-          ></app-pillbar-input>
-        </div>
-      </div>
-      <div class="add-role">
-        <button mat-raised-button color="accent" class="max-width">
-          Добавить роль +
+    </div>
+    <div class="actions">
+      <div class="description">Сохраните Ваши изменения</div>
+      <div class="buttons">
+        <button mat-button>Отмена</button>
+        <button mat-raised-button color="accent" (click)="fillProfile()">
+          Сохранить
         </button>
       </div>
     </div>
-  </div>
-  <div class="section">
-    <div class="info">
-      <div class="title">Дополнительно</div>
-    </div>
-  </div>
-  <div class="actions">
-    <div class="description">Сохраните Ваши изменения</div>
-    <div class="buttons">
-      <button mat-button>Отмена</button>
-      <button mat-raised-button color="accent">Сохранить</button>
-    </div>
-  </div>
-</div>
+  </form>
+</ng-template>

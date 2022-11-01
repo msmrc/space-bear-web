@@ -88,7 +88,7 @@ export class PillbarInputComponent implements OnInit, ControlValueAccessor {
 
   public prepareToWriteValue() {
     let result: string[] = [];
-    this.selectedPills.map((x) => x._id).forEach(x => {
+    this.selectedPills.map((x) => x).forEach(x => {
       result.push(x)
     });
     return result;

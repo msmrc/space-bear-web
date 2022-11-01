@@ -72,6 +72,11 @@ body {
     flex-wrap: wrap;
     gap: 24px;
 
+    &.margins {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
     .header {
       display: flex;
       flex-direction: row;
