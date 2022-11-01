@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { tap } from 'rxjs';
+import { combineLatest, tap } from 'rxjs';
 import { AppStore } from '../store/app.store';
 
 @Component({
@@ -11,6 +11,8 @@ import { AppStore } from '../store/app.store';
 export class InnovatorComponent implements OnInit {
 
   public title: string = ''
+  public subtitle: string = ''
+  public callback: any;
 
   constructor(
     private appStore: AppStore,
@@ -18,9 +20,13 @@ export class InnovatorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.appStore.pageTitle$.pipe(tap((title) => {
-      this.title = title;
-      this.cdr.detectChanges();
-    })).subscribe();
+    combineLatest([this.appStore.pageTitle$, this.appStore.pageSubtitle$, this.appStore.pageAction$]).pipe(
+      tap(([title, subtitle, action]) => {
+        this.title = title;
+        this.subtitle = subtitle;
+        this.callback = action;
+        this.cdr.detectChanges();
+      })
+    ).subscribe();
   }
 }

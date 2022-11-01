@@ -5,15 +5,39 @@
   padding-bottom: 60px;
 }
 
-.page-title {
-  margin: 0;
+
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
   padding-top: 30px;
   padding-bottom: 28px;
-  font-family: 'Mulish';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 48px;
 
-  color: #000000;
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .page-title {
+      margin: 0;
+
+      font-family: 'Mulish';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 48px;
+
+      color: #000000;
+    }
+
+    .page-subtitle {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      color: #181818;
+    }
+  }
 }

@@ -19,6 +19,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/innovator/profile'])
   }
 
+  public openProjects() {
+    this.router.navigate(['/innovator/my-projects/list'])
+  }
+
   public exit() {
     this.appStore.setIsExit(true)
   }

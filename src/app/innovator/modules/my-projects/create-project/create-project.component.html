@@ -1,0 +1,236 @@
+<ng-container [ngSwitch]="step">
+  <ng-container *ngSwitchCase="1">
+    <div class="cards">
+      <div class="left-side">
+        <div class="card hack" (click)="selectType('innovator')">
+          <div class="header">
+            <div class="title">Академия инноваторов</div>
+            <div class="description">
+              Программа по развитию технологических команд и их проектов от идеи
+              до прототипа продукта
+            </div>
+          </div>
+
+          <div class="illustration">
+            <img
+              src="../../../../../assets/images/academy_innovator.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="card default">
+          <div class="disabled">
+            <div class="description">
+              <div class="title">Этот функционал находится в разработке</div>
+              <div class="image">
+                <img src="../../../../../assets/icons/block.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="header">
+            <div class="title">Хакатон Moscow City Hack</div>
+          </div>
+          <div class="advantages">
+            <div class="item">
+              <div class="title">5 задач</div>
+              <div class="description">от города и бизнеса</div>
+            </div>
+            <div class="item">
+              <div class="title">5 дней</div>
+              <div class="description">время разработки</div>
+            </div>
+            <div class="item">
+              <div class="title">5 000 000 Р</div>
+              <div class="description">призовой фонд</div>
+            </div>
+          </div>
+
+          <div class="features">
+            <div class="item first">
+              <div class="title">Первое место</div>
+              <div class="description">500 000 Р</div>
+            </div>
+            <div class="item">
+              <div class="title">Второе место</div>
+              <div class="description">300 000 Р</div>
+            </div>
+            <div class="item">
+              <div class="title">Третье место</div>
+              <div class="description">200 000 Р</div>
+            </div>
+          </div>
+        </div>
+        <div class="card hack">
+          <div class="disabled">
+            <div class="description">
+              <div class="title">Этот функционал находится в разработке</div>
+              <div class="image">
+                <img src="../../../../../assets/icons/block.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="header">
+            <div class="title">Хакатоны и цифровые конкурсы</div>
+            <div class="description">
+              Программы по разработке востребованных городом цифровых продуктов
+            </div>
+          </div>
+
+          <div class="illustration">
+            <img src="../../../../../assets/images/hacks.png" alt="" />
+          </div>
+        </div>
+        <div class="card default">
+          <div class="disabled">
+            <div class="description">
+              <div class="title">Этот функционал находится в разработке</div>
+              <div class="image">
+                <img src="../../../../../assets/icons/block.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="header">
+            <div class="title">Лидеры цифровой трансформации</div>
+          </div>
+          <div class="advantages">
+            <div class="item">
+              <div class="title">10 задач</div>
+              <div class="description">от города и бизнеса</div>
+            </div>
+            <div class="item">
+              <div class="title">14 дней</div>
+              <div class="description">время разработки</div>
+            </div>
+            <div class="item">
+              <div class="title">20 000 000 Р</div>
+              <div class="description">призовой фонд</div>
+            </div>
+          </div>
+
+          <div class="features">
+            <div class="item first">
+              <div class="title">Первое место</div>
+              <div class="description">1 000 000 Р</div>
+            </div>
+            <div class="item">
+              <div class="title">Второе место</div>
+              <div class="description">600 000 Р</div>
+            </div>
+            <div class="item">
+              <div class="title">Третье место</div>
+              <div class="description">400 000 Р</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="card novator">
+          <div class="disabled">
+            <div class="description">
+              <div class="title">Этот функционал находится в разработке</div>
+              <div class="image">
+                <img src="../../../../../assets/icons/block.svg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="header">
+            <div class="title">Новатор Москвы</div>
+            <div class="description">
+              Программа поддержки и развития наукоемких проектов
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="title">Номинации:</div>
+            <div class="nominations">
+              <div class="nomination">
+                <div class="header">
+                  <div class="title">Проект будущего</div>
+                  <div class="description">
+                    Проекты в виде инновационной идеи и имеющие охранный
+                    документ на исключительное право на проект или авторство
+                  </div>
+                </div>
+                <div class="advantages">
+                  <div class="item">
+                    <div class="title">Победитель</div>
+                    <div class="description">500 000 Р</div>
+                  </div>
+                  <div class="item">
+                    <div class="title">Финалист</div>
+                    <div class="description">100 000 Р</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nomination">
+                <div class="header">
+                  <div class="title">Меняющие реальность</div>
+                  <div class="description">
+                    Проекты, имеющие модель организации бизнеса и
+                    коммерциализации (Стартап с MVP)
+                  </div>
+                </div>
+                <div class="advantages">
+                  <div class="item">
+                    <div class="title">Победитель</div>
+                    <div class="description">1 000 000 Р</div>
+                  </div>
+                  <div class="item">
+                    <div class="title">Финалист</div>
+                    <div class="description">150 000 Р</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nomination">
+                <div class="header">
+                  <div class="title">Лидеры инноваций</div>
+                  <div class="description">
+                    Проекты, в рамках которых представляющее его ЮЛ неоднократно
+                    получило выручку
+                  </div>
+                </div>
+                <div class="advantages">
+                  <div class="item">
+                    <div class="title">Победитель</div>
+                    <div class="description">1 000 000 Р</div>
+                  </div>
+                  <div class="item">
+                    <div class="title">Финалист</div>
+                    <div class="description">200 000 Р</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="title">Направления:</div>
+            <div class="directions">
+              <div class="list">
+                <div class="item">Медицина и фармацевтика</div>
+                <div class="item">Экология и охрана окружающей среды</div>
+                <div class="item">Благоустройство и строительство</div>
+                <div class="item">Промышленность</div>
+                <div class="item">Транспорт и логистика</div>
+                <div class="item">Общественные проекты</div>
+              </div>
+              <div class="advantage">
+                <div class="title">Первое место</div>
+                <div class="description">1 000 000 Р</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngSwitchCase="2">
+    <ng-container [ngSwitch]="selectedProjectType">
+      <app-innovator-project
+        *ngSwitchCase="'innovator'"
+      ></app-innovator-project>
+    </ng-container>
+  </ng-container>
+</ng-container>

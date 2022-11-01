@@ -10,6 +10,7 @@ import { AppStore } from 'src/app/store/app.store';
 })
 export class ProjectsForMeComponent implements OnInit {
 
+
   public projectsForMe$ = new BehaviorSubject<any[]>([]);
 
   constructor(
@@ -32,5 +33,9 @@ export class ProjectsForMeComponent implements OnInit {
       description: 'Проект для конкурса ЛЦТ2022'
     }]);
     // this.projectService.getProjectsForMe().subscribe();
+  }
+
+  public onProjectCreate() {
+    this.router.navigate(['/innovator/my-projects/create'])
   }
 }
