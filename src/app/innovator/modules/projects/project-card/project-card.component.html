@@ -1,9 +1,9 @@
 <div class="project">
   <div class="title">
     <div class="name">
-      Space Bear
+      {{ project.projectName }}
       <div class="rate">
-        <div class="score">2.5к</div>
+        <div class="score">{{ getProjectRate() }}</div>
         <div class="icon">
           <img src="../../../../../assets/icons/rate_to_the_moon.svg" alt="" />
         </div>
@@ -26,8 +26,7 @@
     </div>
   </div>
   <div class="description">
-    Проект для поиска единомышленников и обмена идеями, разарабтывается в рамках
-    хакатона Лидеры Цифровой Трансфориации
+    {{ project.projectDescription }}
   </div>
   <div class="category">Для хакатона</div>
   <div class="required">

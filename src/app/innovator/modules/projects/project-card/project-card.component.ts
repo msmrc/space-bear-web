@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ProjectInterface } from 'src/app/shared/interfaces/project.interface';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
 
 @Component({
@@ -9,6 +10,9 @@ import { ProjectDetailsComponent } from '../project-details/project-details.comp
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectCardComponent implements OnInit {
+
+  @Input()
+  project!: ProjectInterface;
 
   public isOpen: boolean = false;
 
@@ -22,6 +26,15 @@ export class ProjectCardComponent implements OnInit {
   public switchDetails(): void {
     this.isOpen = !this.isOpen;
     this.cdr.detectChanges();
+  }
+
+  public getProjectRate() {
+    const rates = this.project.rate;
+    if (rates && rates.length > 0) {
+      return rates.map(x => x.count).reduce((x, y) => x + y);
+    } else {
+      return 0;
+    }
   }
 
   public openDetails(): void {
