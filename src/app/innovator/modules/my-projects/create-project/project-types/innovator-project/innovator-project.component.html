@@ -1,1 +1,129 @@
-<div class="create-project">Инноватор</div>
+<div class="tabs">
+  <div class="tab active">Заполнение информации</div>
+  <div class="tab disabled">Команда</div>
+  <!-- <div class="tab disabled">Отправленные приглашения</div>
+  <div class="tab disabled">Заявки</div> -->
+</div>
+<div class="create-project">
+  <ng-container [ngSwitch]="currentTab">
+    <ng-container *ngSwitchCase="1">
+      <div class="change-type">
+        <div class="current-type">
+          <div class="title">Академия инноваторов</div>
+          <div class="description">
+            Программа по развитию технологических команд и их проектов от идеи
+            до прототипа продукта
+          </div>
+        </div>
+        <div class="action">
+          <button mat-raised-button color="accent">Изменить</button>
+        </div>
+      </div>
+      <div class="section">
+        <div class="info">
+          <div class="title">Основное</div>
+          <div class="description">
+            Очень важно заполнить информацию этого раздела в полном объеме, от
+            нее будет зависеть корректность подбора специалистов для вашего
+            проекта, на основе Машинного Обучения
+          </div>
+        </div>
+        <div class="form">
+          <div class="form__section">
+            <div class="width-50">
+              <mat-form-field appearance="fill" required>
+                <mat-label>Название проекта</mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
+            <div class="width-50">
+              <mat-form-field appearance="fill">
+                <mat-label>Ссылка на проект </mat-label>
+                <input matInput type="text" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="header">
+            <div class="title">Опишите цели и задачи вашего проекта*</div>
+          </div>
+          <div class="form__section">
+            <div class="width-100 h-100">
+              <mat-form-field appearance="fill">
+                <mat-label>Описание проекта</mat-label>
+                <textarea
+                  matInput
+                  cdkTextareaAutosize
+                  cdkAutosizeMinRows="3"
+                ></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="info">
+          <div class="title">Роли для формирования команды</div>
+        </div>
+        <div class="form">
+          <div class="header">
+            <div class="title">Ваша роль в команде*</div>
+            <div class="action">Удалить</div>
+          </div>
+          <div class="form__section">
+            <div class="width-50">
+              <mat-form-field appearance="fill">
+                <mat-label>Специальность</mat-label>
+                <mat-select>
+                  <mat-option value="Frontend">Frontend</mat-option>
+                  <mat-option value="Backend">Backend</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="width-50">
+              <app-pillbar-input
+                label="Навыки*"
+                [possibleValues]="['C#', 'C++', '.net']"
+              ></app-pillbar-input>
+            </div>
+          </div>
+        </div>
+
+        <div class="form">
+          <div class="header">
+            <div class="title">Роли и навыки*</div>
+            <div class="action">Удалить</div>
+          </div>
+          <div class="form__section">
+            <div class="width-50">
+              <mat-form-field appearance="fill">
+                <mat-label>Специальность</mat-label>
+                <mat-select>
+                  <mat-option value="Frontend">Frontend</mat-option>
+                  <mat-option value="Backend">Backend</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="width-50">
+              <app-pillbar-input
+                label="Навыки*"
+                [possibleValues]="['C#', 'C++', '.net']"
+              ></app-pillbar-input>
+            </div>
+          </div>
+          <div class="add-role">
+            <button mat-raised-button color="accent" class="max-width">
+              Добавить роль +
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="description">Сохраните Ваши изменения</div>
+        <div class="buttons">
+          <button mat-button>Отмена</button>
+          <button mat-raised-button color="accent">Сохранить</button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

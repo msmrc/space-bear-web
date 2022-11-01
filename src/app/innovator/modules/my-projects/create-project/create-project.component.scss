@@ -52,24 +52,24 @@
 
 
       .description {
-        width: 200px;
+        width: 140px;
         display: flex;
         text-align: center;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        gap: 12px;
 
         .title {
           font-weight: 700;
-          font-size: 18px;
-          line-height: 20px;
+          font-size: 20px;
+          line-height: 30px;
           color: #333F48;
         }
 
         .image {
-          width: 24px;
-          height: 24px;
+          width: 46px;
+          height: 46px;
         }
       }
     }

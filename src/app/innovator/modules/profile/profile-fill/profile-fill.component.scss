@@ -34,44 +34,6 @@
       }
     }
 
-    .form {
-
-      .header {
-        margin-top: 24px;
-        margin-bottom: 16px;
-
-        display: flex;
-        justify-content: space-between;
-
-        .title {
-          font-weight: 600;
-          font-size: 16px;
-          line-height: 16px;
-          color: #000000;
-        }
-
-        .action {
-          cursor: pointer;
-          font-weight: 800;
-          font-size: 14px;
-          line-height: 16px;
-          color: #FF7351;
-        }
-      }
-
-      &__section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 24px;
-
-        .header {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        }
-      }
-    }
   }
 
   .add-role {
@@ -80,7 +42,7 @@
 
   .actions {
     position: fixed;
-    bottom: 50px;
+    bottom: 12px;
 
     padding: 24px;
     margin: auto;

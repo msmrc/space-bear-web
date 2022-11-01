@@ -18,7 +18,7 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.appStore.setPageTitle('Создание проекта');
+    this.appStore.setPageTitle('Добавление проекта');
     this.appStore.setPageSubtitle('Выберете одно из нескольких направлений');
   }
 

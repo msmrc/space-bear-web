@@ -41,7 +41,8 @@
       <app-tag
         *ngFor="let pill of selectedPills"
         (click)="unselectPill(pill)"
-        class="cursor-pointer"
+        class="cursor-pointer selected"
+        [color]="'selected'"
       >
         <span class="">{{ pill }}</span>
         <img src="../../../../assets/icons/close.svg" alt="" />
