@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectInterface } from 'src/app/shared/interfaces/project.interface';
+import { ProjectsService } from 'src/app/shared/services/projects.service';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
 
 @Component({
@@ -18,6 +19,7 @@ export class ProjectCardComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
+    private projectService: ProjectsService,
     public dialog: MatDialog
   ) { }
 
@@ -39,7 +41,10 @@ export class ProjectCardComponent implements OnInit {
 
   public openDetails(): void {
     const dialogRef = this.dialog.open(ProjectDetailsComponent, {
-      width: '800px'
+      width: '800px',
+      data: {
+        id: this.project._id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {

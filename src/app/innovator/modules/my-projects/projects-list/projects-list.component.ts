@@ -31,7 +31,7 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
 
 
     this.appStore.user$.pipe(
-      switchMap((user) => user ? this.projectsService.getProjectsByMemberId(user?.id) : of()),
+      switchMap((user) => user?.fullUser?._id ? this.projectsService.getProjectsByMemberId(user?.fullUser?._id) : of()),
       tap((projects) => {
         if (projects) {
           this.myProjects = projects;

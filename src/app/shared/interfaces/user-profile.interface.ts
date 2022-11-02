@@ -1,4 +1,5 @@
 export interface UserProfileInterface {
+  _id?: string; // id профиля
   userId: string;
   firstName: string; // имя
   secondName: string; // фамилия

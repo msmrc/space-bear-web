@@ -1,3 +1,15 @@
+<ng-container *ngIf="isNoUserProfile; else formTemplate">
+  <div>
+    <div>Ошибка! Сначала нужно заполнить профиль.</div>
+    <div>
+      <button mat-raised-button (click)="toFillProfile()" color="primary">
+        Заполнить
+      </button>
+    </div>
+  </div>
+</ng-container>
+<ng-template #formTemplate> </ng-template>
+
 <ng-container [ngSwitch]="step">
   <ng-container *ngSwitchCase="1">
     <div class="cards">

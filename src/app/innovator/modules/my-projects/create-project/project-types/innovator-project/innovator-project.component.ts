@@ -24,7 +24,7 @@ export class InnovatorProjectComponent implements OnInit {
 
   public currentTab: number = 1;
 
-  private userId!: string;
+  private fullProfileId!: string;
 
   constructor(
     private appStore: AppStore,
@@ -38,7 +38,10 @@ export class InnovatorProjectComponent implements OnInit {
     this.appStore.setPageSubtitle('Заполните все необходимые данные');
     this.appStore.user$.pipe(tap((user) => {
       if (user) {
-        this.userId = user.id
+        const fullProfile = user.fullUser;
+        if (fullProfile?._id) {
+          this.fullProfileId = fullProfile._id;
+        }
       }
     })).subscribe();
 
@@ -57,7 +60,7 @@ export class InnovatorProjectComponent implements OnInit {
 
     const project: ProjectInterface = {
       existTeam: [{
-        userId: this.userId,
+        fullProfileId: this.fullProfileId,
         category: form.ownerCategory,
         skills: form.ownerSkills
       }],
@@ -68,7 +71,7 @@ export class InnovatorProjectComponent implements OnInit {
       projectName: form.projectName,
       type: 'innovator',
       lookingForTeam: form.lookingForTeam,
-      projectOwnerId: this.userId,
+      projectOwnerId: this.fullProfileId,
       projectTags: form.projectTags
     };
 
