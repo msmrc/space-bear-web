@@ -1,0 +1,167 @@
+.projects-list {
+  width: 956px;
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    gap: 16px;
+
+    .header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .title {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 22px;
+        color: #333F48;
+      }
+
+      .action {
+        height: 26px;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .description {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      color: #181818;
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: row;
+      gap: 74px;
+
+      .stat-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+
+        .value {
+          font-weight: 800;
+          font-size: 24px;
+          line-height: 30px;
+          color: #333F48;
+        }
+
+        .icon {}
+      }
+    }
+
+    .category {
+      width: fit-content;
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #FF7351;
+
+      padding: 8px 24px;
+      background: #FFF4EC;
+      border-radius: 6px;
+    }
+
+    .team {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #333F48;
+      }
+
+      .members {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+
+        .member {
+          .avatar {}
+        }
+      }
+    }
+
+    .required {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #333F48;
+      }
+
+      .skills {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .skill {
+          width: fit-content;
+          padding: 8px 24px;
+          background: #F4F4F4;
+          border-radius: 6px;
+
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+          color: #1E1E1E;
+        }
+      }
+    }
+
+    .advantages {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #333F48;
+      }
+
+      .advantage-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .advantage {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+          color: #FF7351;
+        }
+      }
+    }
+  }
+}

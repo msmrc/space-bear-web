@@ -1,8 +1,11 @@
+import { UserProfileInterface } from "./user-profile.interface";
+
 export interface UserInterface {
   id: string;
   email: string;
   accessToken: string;
   role: string;
+  fullUser?: UserProfileInterface
 }
 
 export interface UserFromAPIInterface {

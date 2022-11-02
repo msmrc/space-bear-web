@@ -8,6 +8,7 @@ import { ProjectsComponent } from './projects.component';
 import { CommonModule } from '@angular/common';
 import { ProjectDetailsModule } from './project-details/project-details.module';
 import { ProjectCardModule } from './project-card/project-card.module';
+import { BearModule } from 'src/app/shared/modules/bear-module/bear.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ProjectCardModule } from './project-card/project-card.module';
     MaterialModule,
     ProjectCardModule,
     ProjectDetailsModule,
+    BearModule,
   ],
   exports: [],
   declarations: [

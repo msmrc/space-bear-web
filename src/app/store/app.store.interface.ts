@@ -17,7 +17,7 @@ export const DEFAULT_STATE: AppState = {
     id: '',
     accessToken: '',
     email: '',
-    role: ''
+    role: '',
   },
   pageSubtitle: '',
   pageAction: {

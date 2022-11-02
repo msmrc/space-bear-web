@@ -1,1 +1,90 @@
-Мои проекты
+<div class="projects-list">
+  <div class="project" *ngFor="let project of myProjects">
+    <div class="header">
+      <div class="title">
+        <div class="name">Space Bear 200</div>
+        <div class="action">
+          <img
+            src="../../../../../assets/icons/rate_to_the_moon.svg"
+            alt=""
+            srcset=""
+          />
+        </div>
+      </div>
+      <div class="action" [matMenuTriggerFor]="menu">
+        <img src="../../../../../assets/icons/more.svg" alt="" />
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="viewProject()">Посмотреть</button>
+        <button mat-menu-item (click)="editProject()">Редактировать</button>
+        <button mat-menu-item>Статистика</button>
+        <button mat-menu-item>Скрыть</button>
+        <button mat-menu-item>Удалить</button>
+      </mat-menu>
+    </div>
+
+    <div class="description">
+      Проект для поиска единомышленников и обмена идеями, разрабатывается в
+      рамках хакатона Лидеры Цифровой Трансформации
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <div class="value">255</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/eye.svg" alt="" />
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="value">255</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/comment.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="category">Для хакатона</div>
+
+    <div class="team">
+      <div class="title">Команда</div>
+      <div class="members">
+        <div class="member">
+          <div class="avatar">
+            <img src="../../../../../assets/images/avatar_another.svg" alt="" />
+          </div>
+        </div>
+        <div class="member">
+          <div class="avatar">
+            <img src="../../../../../assets/images/avatar_another.svg" alt="" />
+          </div>
+        </div>
+        <div class="member">
+          <div class="avatar">
+            <img src="../../../../../assets/images/avatar_another.svg" alt="" />
+          </div>
+        </div>
+        <div class="member">
+          <div class="avatar">
+            <img src="../../../../../assets/images/avatar_another.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="required">
+      <div class="title">Требуются</div>
+      <div class="skills">
+        <div class="skill">Frontend</div>
+        <div class="skill">Backend</div>
+      </div>
+    </div>
+
+    <div class="advantages">
+      <div class="title">Особенности</div>
+      <div class="advantage-list">
+        <div class="advantage">Modern UI</div>
+        <div class="advantage">Machine Learning</div>
+      </div>
+    </div>
+  </div>
+</div>

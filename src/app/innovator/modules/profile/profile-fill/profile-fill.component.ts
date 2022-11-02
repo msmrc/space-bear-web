@@ -7,6 +7,7 @@ import { AppStore } from 'src/app/store/app.store';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserProfileInterface } from 'src/app/shared/interfaces/user-profile.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserInterface } from 'src/app/shared/interfaces/user.interface';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class ProfileFillComponent implements OnInit {
   public tags: string[] = [];
 
   private userId!: string;
+  private currentUser!: UserInterface;
 
   constructor(
     private appStore: AppStore,
@@ -38,6 +40,7 @@ export class ProfileFillComponent implements OnInit {
     this.appStore.setPageTitle('Заполнение профиля')
     this.appStore.user$.pipe(tap((user) => {
       if (user) {
+        this.currentUser = user;
         this.userId = user.id
       }
     })).subscribe();
@@ -73,6 +76,10 @@ export class ProfileFillComponent implements OnInit {
 
     this.userService.createProfile(user).pipe(tap((updatedUser) => {
       this.snackBar.open('Успешно! Ваш профиль обновлен', 'Отлично');
+      this.appStore.setUser({
+        ...this.currentUser,
+        fullUser: updatedUser,
+      })
       // set user to appStore
       // redirect to Bot
     })).subscribe();
@@ -112,7 +119,6 @@ export class ProfileFillComponent implements OnInit {
       citizenship: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      experience: ['100', Validators.required],
       firstName: ['', Validators.required],
       gender: ['', Validators.required],
       interestedTags: [[], Validators.required],
@@ -120,5 +126,33 @@ export class ProfileFillComponent implements OnInit {
       secondName: ['', Validators.required],
       skillInformation: this.fb.array([]), // form array
     });
+
+    const fullUser = this.currentUser.fullUser;
+    if (fullUser) {
+      this.form.patchValue({
+        aboutDescription: fullUser.aboutDescription,
+        birthDate: fullUser.birthDate,
+        citizenship: fullUser.citizenship,
+        city: fullUser.city,
+        country: fullUser.country,
+        firstName: fullUser.firstName,
+        gender: fullUser.gender,
+        interestedTags: fullUser.interestedTags,
+        lastName: fullUser.lastName,
+        secondName: fullUser.secondName,
+      });
+
+      if (fullUser.skillInformation.length > 0) {
+        fullUser.skillInformation.forEach((skillInfo) => {
+          this.skillInformation.push(
+            this.fb.group({
+              category: [skillInfo.category, Validators.required],
+              skills: [skillInfo.skills, Validators.required],
+              experience: [skillInfo.experience, Validators.required],
+            })
+          );
+        })
+      }
+    }
   }
 }

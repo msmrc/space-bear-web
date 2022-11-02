@@ -1,6 +1,8 @@
+import { tap } from 'rxjs';
 import { AppStore } from './../../../store/app.store';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserInterface } from 'src/app/shared/interfaces/user.interface';
 
 @Component({
   selector: 'header',
@@ -8,12 +10,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  public userFIO: string = '';
+
   constructor(
     private appStore: AppStore,
     private router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.appStore.user$.pipe(
+      tap((user) => {
+        const fullUser = user?.fullUser;
+        if (fullUser) {
+          this.userFIO = `${fullUser.firstName} ${fullUser.secondName}`
+        } else {
+          this.userFIO = 'spacebear-591259';
+        }
+      })
+    ).subscribe();
+  }
 
   public openProfile() {
     this.router.navigate(['/innovator/profile'])

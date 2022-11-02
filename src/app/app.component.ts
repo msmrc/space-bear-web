@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    timer(2000).pipe(tap(() => {
+    timer(3000).pipe(tap(() => {
       this.isPageLoading = false;
       this.cdr.detectChanges();
     })).subscribe();
@@ -39,6 +39,10 @@ export class AppComponent implements OnInit, AfterViewInit {
         }
       })
     ).subscribe();
+  }
+
+  public isMobileDevice(): boolean {
+    return window.matchMedia('(max-width: 1200px)').matches;
   }
 
   private _checkAuth(): void {

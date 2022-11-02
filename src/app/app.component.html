@@ -1,6 +1,46 @@
-<div class="splash" *ngIf="isPageLoading">
-  <div class="content">Загрузка...</div>
+<div class="splash" [ngClass]="!isPageLoading ? 'opacity' : ''">
+  <div class="content">
+    <video
+      width="600"
+      height="100%"
+      autoplay
+      loop
+      muted
+      playsinline
+      #videoloader
+    >
+      <source
+        src="../assets/videos/loader2.mp4"
+        type="video/mp4"
+        codecs="hvc1"
+      />
+      <source src="../assets/videos/loader2.webm" type="video/webm" />
+    </video>
+    <div class="title-block">
+      <div class="logo">
+        <img src="../assets/images/logo.svg" alt="" srcset="" />
+      </div>
+      <div class="title">Загрузка...</div>
+    </div>
+  </div>
 </div>
-<div class="app" [ngClass]="isPageLoading ? 'opacity' : ''">
-  <router-outlet></router-outlet>
-</div>
+<ng-container *ngIf="isMobileDevice(); else desktopTemplate">
+  <div class="mobile-alert">
+    <div class="message">
+      <div class="message-content">
+        <div class="title">Скачайте наше мобильное приложение</div>
+        <div class="description">
+          К сожалению наш сервис не поддерживается на мобильных устройствах
+        </div>
+      </div>
+
+      <div class="illustration"></div>
+      <div class="action disabled">Перейти в AppStore</div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #desktopTemplate>
+  <div class="app" [ngClass]="isPageLoading ? 'opacity' : ''">
+    <router-outlet></router-outlet>
+  </div>
+</ng-template>

@@ -16,6 +16,10 @@ export class ProjectsService {
     return this.httpClient.get<ProjectInterface>(`${environment.apiUrl}projects/get-project-by-id/${id}`)
   }
 
+  getProjectsByMemberId(memberId: string): Observable<ProjectInterface[]> {
+    return this.httpClient.get<ProjectInterface[]>(`${environment.apiUrl}projects/get-projects-by-member-id/${memberId}`)
+  }
+
   createProject(project: ProjectInterface): Observable<ProjectInterface> {
     return this.httpClient.post<ProjectInterface>(`${environment.apiUrl}projects/create`, project);
   }
