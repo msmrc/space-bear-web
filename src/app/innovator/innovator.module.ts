@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/modules/material.module';
 import { HeaderComponent } from './components/header/header.component';
+import { InProgressModalModule } from '../shared/modules/in-progress-modal/in-progress-modal.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeaderComponent } from './components/header/header.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    InProgressModalModule
   ],
   providers: [],
 })

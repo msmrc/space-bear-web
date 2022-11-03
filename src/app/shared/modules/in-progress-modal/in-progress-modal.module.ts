@@ -1,22 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/modules/material.module';
-import { ProjectDetailsComponent } from './project-details.component';
+import { InProgressModalComponent } from './in-progress-modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     MaterialModule
   ],
   exports: [
-    ProjectDetailsComponent
+    InProgressModalComponent
   ],
   declarations: [
-    ProjectDetailsComponent
+    InProgressModalComponent
   ],
   providers: [],
 })
-export class ProjectDetailsModule { }
+export class InProgressModalModule { }

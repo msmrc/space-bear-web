@@ -55,17 +55,25 @@
 
   .description {}
 
-  .category {
-    width: fit-content;
-    padding: 8px 24px;
-    background: #FFF4EC;
-    border-radius: 6px;
+  .categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
 
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-    color: #FF7351;
+    .category {
+      width: fit-content;
+      padding: 8px 24px;
+      background: #FFF4EC;
+      border-radius: 6px;
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #FF7351;
+    }
   }
+
 
   .required {
     display: flex;
@@ -82,6 +90,7 @@
     .items {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 10px;
 
       .item {
@@ -126,6 +135,7 @@
   .team {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 16px;
 
@@ -150,6 +160,7 @@
       .tags {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 4px;
 
         .tag {
@@ -166,6 +177,7 @@
       cursor: pointer;
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 8px;
 
       .name {

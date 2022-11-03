@@ -1,0 +1,106 @@
+.user-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 16px;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .about {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 30px;
+
+      .avatar {
+        width: 100px;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .bear {
+        .fio {
+          font-weight: 700;
+          font-size: 22px;
+          line-height: 22px;
+          color: #333F48;
+        }
+
+        .about-items {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 12px;
+
+          .item {
+            .icon {}
+
+            .value {
+              font-weight: 700;
+              font-size: 14px;
+              line-height: 18px;
+              color: #FF7351;
+            }
+          }
+        }
+      }
+    }
+
+    .actions {
+      width: 32px;
+      cursor: pointer;
+    }
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .title {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+      color: #333F48;
+    }
+
+    .items {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .item {
+        width: fit-content;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #1E1E1E;
+        padding: 8px 24px;
+        background: #F4F4F4;
+        border-radius: 6px;
+      }
+    }
+  }
+
+  .description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #181818;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+}

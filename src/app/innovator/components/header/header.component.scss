@@ -1,8 +1,12 @@
 .header {
   width: 100%;
-  background: #FFFFFF;
-  border-radius: 0px 0px 40px 40px;
   padding: 28px 0 28px 0;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(27px);
+  border-radius: 0px 0px 40px 40px;
+
+  position: absolute;
 
   .nav {
     max-width: 1440px;
@@ -21,30 +25,25 @@
     .links {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 24px;
 
 
       &__item {
+        cursor: pointer;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 20px;
-        /* identical to box height, or 143% */
 
-
-        color: #000000;
+        color: #FFFFFF;
 
         &.active {
           font-weight: 800;
           font-size: 14px;
           line-height: 20px;
-          /* identical to box height, or 143% */
-
-
-          /* Accent-primary */
-
-          color: #FF7351;
+          color: #FE0046;
 
         }
       }
@@ -62,6 +61,7 @@
       }
 
       .fio {
+        color: #FFFFFF;
         display: flex;
         flex-direction: row;
         align-items: center;

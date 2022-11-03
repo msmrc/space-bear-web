@@ -3,6 +3,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 import { UserProfileInterface } from 'src/app/shared/interfaces/user-profile.interface';
 import { UserService } from 'src/app/shared/services/user.service';
 import { AppStore } from 'src/app/store/app.store';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -17,7 +18,8 @@ export class UserListComponent implements OnInit {
   constructor(
     private appStore: AppStore,
     private cdr: ChangeDetectorRef,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -29,5 +31,9 @@ export class UserListComponent implements OnInit {
         this.cdr.detectChanges();
       })
     ).subscribe();
+  }
+
+  public viewUser(id: string) {
+    this.router.navigate([`/innovator/bears/view/${id}`]);
   }
 }

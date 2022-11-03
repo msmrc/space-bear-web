@@ -25,13 +25,10 @@
       <a class="links__item" [routerLink]="['bears']" routerLinkActive="active"
         >Специалисты</a
       >
-      <a class="links__item" [routerLink]="['news']" routerLinkActive="active"
-        >Новости</a
+      <a class="links__item" (click)="onInProgress()" routerLinkActive="active"
+        >Блоги</a
       >
-      <a
-        class="links__item"
-        [routerLink]="['/battle']"
-        routerLinkActive="active"
+      <a class="links__item" routerLinkActive="active" (click)="onInProgress()"
         >Битва Проектов</a
       >
     </div>
@@ -41,9 +38,9 @@
       </div>
       <div class="fio">
         {{ userFIO }}
-        <div class="arrow">
+        <!-- <div class="arrow">
           <img src="../../../../assets/icons/arrow_down.svg" alt="" srcset="" />
-        </div>
+        </div> -->
       </div>
     </div>
     <mat-menu #menu="matMenu">

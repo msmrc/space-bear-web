@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ProjectInterface } from 'src/app/shared/interfaces/project.interface';
+import { MemberInterface, ProjectInterface } from 'src/app/shared/interfaces/project.interface';
+import { UserProfileInterface } from 'src/app/shared/interfaces/user-profile.interface';
 import { ProjectsService } from 'src/app/shared/services/projects.service';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
 
@@ -28,6 +29,11 @@ export class ProjectCardComponent implements OnInit {
   public switchDetails(): void {
     this.isOpen = !this.isOpen;
     this.cdr.detectChanges();
+  }
+
+  public getTooltip(member: MemberInterface): string {
+    const userProfile = member.fullProfileId as UserProfileInterface;
+    return `${userProfile.firstName} ${userProfile.secondName} ${member.category}`
   }
 
   public getProjectRate() {

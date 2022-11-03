@@ -52,6 +52,7 @@
     .stats {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 74px;
 
       .stat-item {
@@ -99,6 +100,7 @@
       .members {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 6px;
 
         .member {
@@ -122,6 +124,7 @@
       .skills {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 10px;
 
         .skill {
@@ -153,6 +156,7 @@
       .advantage-list {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 10px;
 
         .advantage {

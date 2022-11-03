@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { UserListComponent } from './user-list/user-list.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersComponent } from './users.component';
+import { ViewUserComponent } from './view-user/view-user.component';
+import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   imports: [
@@ -14,6 +16,8 @@ import { UsersComponent } from './users.component';
   exports: [],
   declarations: [
     UsersComponent,
+    ViewUserComponent,
+    UserCardComponent,
     UserListComponent
   ],
   providers: [],

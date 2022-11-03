@@ -15,9 +15,13 @@
     .actions {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 8px;
 
       .action {
+        width: 50px;
+        height: 50px;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -30,20 +34,32 @@
           background: #FFF4EC;
           transition: 0.5ms;
         }
+
+        &.selected {
+          background: #ffdcc3;
+        }
       }
     }
   }
 
   &__bottom {
-    .category {
-      width: fit-content;
-      padding: 8px 24px;
-      background: #FFF4EC;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 18px;
-      color: #FF7351;
+    .categories {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      .category {
+        width: fit-content;
+        padding: 8px 24px;
+        background: #FFF4EC;
+        border-radius: 6px;
+
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #FF7351;
+      }
     }
   }
 }
@@ -56,6 +72,7 @@
   .stats {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 70px;
 
     .stat {
@@ -101,9 +118,10 @@
     .member-list {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 6px;
 
-      overflow-x: scroll;
+      overflow-x: hidden;
 
       .member {
         position: relative;
@@ -191,6 +209,7 @@
       .skills {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 10px;
 
         .skill {
@@ -221,6 +240,7 @@
     .tags {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       gap: 4px;
 
       .tag {

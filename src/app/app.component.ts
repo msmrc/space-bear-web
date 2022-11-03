@@ -30,6 +30,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.cdr.detectChanges();
+
     this._checkAuth();
     this.appStore.isExit$.pipe(
       tap((isExit) => {

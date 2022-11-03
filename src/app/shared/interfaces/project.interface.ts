@@ -1,3 +1,5 @@
+import { UserProfileInterface } from "./user-profile.interface";
+
 export interface ProjectInterface {
   _id?: string;
   type: string; // Выбирается на фронте из списка (Академия инноваторов, Хакатоны и цифровые конкурсы и тд)
@@ -24,7 +26,7 @@ export interface ProjectInterface {
   // Социальные элементы
   views?: number; // просмотры
   rate?: RateInterface[]; // рейтинг
-  comments?: CommentaryInterface[] // комментарии
+  comments?: CommentInterface[] // комментарии
 }
 
 export interface CostByAdminInterface {
@@ -33,18 +35,40 @@ export interface CostByAdminInterface {
   publishDate: string; // дата публикации оценки
 }
 
-export interface CommentaryInterface {
-  fullProfileId: string;
+export interface CommentInterface {
+  fullProfileId: any;
+  projectId: string;
   comment: string;
 }
 
 export interface RateInterface {
-  fullProfileId: string;
+  fullProfileId: any;
+  projectId: string;
   count: number;
 }
 
 export interface MemberInterface {
-  fullProfileId?: string;
+  fullProfileId?: string | UserProfileInterface;
+  category: string;
+  skills: string[];
+}
+
+export interface IncomeToTeamInterface {
+  fullProfileId: any;
+  projectId: string;
+  category: string;
+  skills: string[];
+}
+export interface OutgoingTeamInterface {
+  fullProfileId: any;
+  projectId: string;
+  category: string;
+  skills: string[];
+}
+export interface AcceptToTeamInterface {
+  type: string; // outgoing / income
+  fullProfileId: any;
+  projectId: string;
   category: string;
   skills: string[];
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://space-bear-api.herokuapp.com/api/'
+  apiUrl: 'https://space-bear-api.herokuapp.com/api/',
+  apiUrlML: 'http://194.67.67.70/'
 };
 
 /*

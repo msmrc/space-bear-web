@@ -1,0 +1,68 @@
+<div class="user-card">
+  <div class="header">
+    <div class="about">
+      <div class="avatar">
+        <img src="../../../../../assets/images/avatar_another.svg" alt="" />
+      </div>
+      <div class="bear">
+        <div class="fio">Иванов Иван 23 года</div>
+        <div class="about-items">
+          <div class="item">
+            <div class="icon"></div>
+            <div class="value">Россия, Москва</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions" [matMenuTriggerFor]="menu">
+      <img src="../../../../../assets/icons/more.svg" alt="" />
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="viewUser()">Перейти в профиль</button>
+    </mat-menu>
+  </div>
+
+  <div class="skills">
+    <div class="title">Специализация</div>
+    <div class="items">
+      <div class="item">Frontend</div>
+      <div class="item">Backend</div>
+      <div class="item">Backend</div>
+    </div>
+  </div>
+  <div class="skills">
+    <div class="title">Навыки</div>
+    <div class="items">
+      <div class="item">С++</div>
+      <div class="item">С#</div>
+      <div class="item">ReactJS</div>
+    </div>
+  </div>
+
+  <div class="description">
+    Хотел бы поучаствовать в реальном проекте, чтобы познать прелесть написания
+    продакшн кода и поднять свой профессиональный уровень во время работы с
+    более опытными напарниками. Предпочтителен стек с Vue, но и на реакте
+    побахать не откажусь. Ну и конечно же познакомиться с крутыми людьми,
+    которые круче меня в разработке, сочту за честь :)
+  </div>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="invite()"
+      class="action__invite"
+    >
+      Пригласить в команду
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="viewUser()"
+      class="action__view"
+    >
+      Перейти в профиль
+    </button>
+  </div>
+</div>

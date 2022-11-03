@@ -1,6 +1,8 @@
 .cards {
+  width: 956px;
+  margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 24px;
 
   .card {
@@ -80,11 +82,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 24px;
-    width: 850px;
 
     .hack {
       // height: 480px;
-      width: 400px;
+      // width: 400px;
+      width: 50%;
 
       .illustration {
         position: absolute;
@@ -95,7 +97,10 @@
 
     .default {
       //  height: 480px;
-      width: 400px;
+      // width: 400px;
+      // flex: 1;
+      width: 50%;
+      flex: 1;
 
       display: flex;
       flex-direction: column;
@@ -165,7 +170,7 @@
 
   .right-side {
     .novator {
-      max-width: 400px;
+      // max-width: 400px;
       width: 100%;
 
       display: flex;
@@ -213,6 +218,7 @@
             .advantages {
               display: flex;
               flex-direction: row;
+              flex-wrap: wrap;
               gap: 16px;
 
               .item {

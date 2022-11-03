@@ -1,7 +1,7 @@
 <div class="project">
   <div class="title">
     <div class="name">
-      {{ project.projectName }}
+      {{ project?.projectName }}
       <div class="rate">
         <div class="score">{{ getProjectRate() }}</div>
         <div class="icon">
@@ -28,25 +28,31 @@
   <div class="description">
     {{ project.projectDescription }}
   </div>
-  <div class="category">Для хакатона</div>
+  <div class="categories">
+    <div class="category" *ngFor="let tag of project.projectTags">
+      {{ tag }}
+    </div>
+  </div>
   <div class="required">
     <div class="title">Требуются</div>
     <div class="items">
-      <div class="item">Frontend</div>
-      <div class="item">Backend</div>
-      <div class="item">Менеджер проекта</div>
+      <div class="item" *ngFor="let looking of project.lookingForTeam">
+        {{ looking.category }}
+      </div>
     </div>
   </div>
   <div class="details" *ngIf="isOpen">
     <div class="stat-items">
       <div class="stat">
-        <div class="count">3.5к</div>
+        <div class="count">{{ project.views }}</div>
         <div class="icon">
           <img src="../../../../../assets/icons/eye.svg" alt="" />
         </div>
       </div>
       <div class="stat">
-        <div class="count">120</div>
+        <div class="count">
+          {{ project.comments ? project.comments.length : 0 }}
+        </div>
         <div class="icon">
           <img src="../../../../../assets/icons/comment.svg" alt="" />
         </div>
@@ -54,30 +60,22 @@
     </div>
 
     <div class="team">
-      <div class="member" matTooltip="CEO">
-        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
-      </div>
-      <div class="member" matTooltip="Design">
-        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
-      </div>
-      <div class="member">
-        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
-      </div>
-      <div class="member">
-        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
-      </div>
-      <div class="member">
+      <div
+        class="member"
+        *ngFor="let member of project.existTeam"
+        matTooltip="{{ getTooltip(member) }}"
+      >
         <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
       </div>
     </div>
 
     <div class="additional">
       <div class="adv">
-        <div class="title">Особенности</div>
+        <!-- <div class="title">Особенности</div>
         <div class="tags">
           <div class="tag">Modern UI</div>
           <div class="tag">Machine Learning</div>
-        </div>
+        </div> -->
       </div>
 
       <div class="more" (click)="openDetails()">
