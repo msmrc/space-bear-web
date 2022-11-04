@@ -1,4 +1,9 @@
 <div class="projects-list">
+  <app-project-card
+    *ngFor="let project of myProjects"
+    [project]="project"
+    [isProjectOwn]="true"
+  ></app-project-card>
   <div class="project" *ngFor="let project of myProjects">
     <div class="header">
       <div class="title">

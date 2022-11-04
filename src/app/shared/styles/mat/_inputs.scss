@@ -1,13 +1,14 @@
 .mat-form-field {
   width: 100%;
+  color: #FFFFFF;
 }
 
 mat-label {
-  color: #828282;
+  color: #FFFFFF;
 }
 
 .mat-placeholder-required {
-  color: #828282;
+  color: #FFFFFF
 }
 
 .mat-form-field-underline {
@@ -29,10 +30,10 @@ input.mat-input-element {
   line-height: 1.41em;
 
   &.ng-dirty {
-    color: #333333;
+    color: #ffffff;
   }
 
-  color: #392927;
+  color: #ffffff;
   width: 100%;
   margin-top: -2px;
 }

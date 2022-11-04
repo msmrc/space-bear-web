@@ -6,9 +6,9 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 
 import { ProjectsComponent } from './projects.component';
 import { CommonModule } from '@angular/common';
-import { ProjectDetailsModule } from './project-details/project-details.module';
-import { ProjectCardModule } from './project-card/project-card.module';
 import { BearModule } from 'src/app/shared/modules/bear-module/bear.module';
+import { ProjectCardModule } from 'src/app/shared/modules/project-card/project-card.module';
+import { ProjectDetailsModule } from 'src/app/shared/modules/project-details/project-details.module';
 
 @NgModule({
   imports: [

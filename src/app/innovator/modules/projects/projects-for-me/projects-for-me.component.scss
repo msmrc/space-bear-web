@@ -8,26 +8,34 @@
 
     height: 700px;
     width: 956px;
-    background: #FFFFFF;
+    background: #2C2850;
     border-radius: 20px;
     margin: auto;
-    overflow: auto;
+    overflow: hidden;
 
     .scroll {
-      height: 700px;
+      height: 650px;
+      margin: 20px;
       overflow-y: scroll;
       position: relative;
 
       .flex {
-        padding: 40px;
+        padding: 20px;
         display: flex;
+        height: 100%;
+        // margin-top: auto;
 
         flex-direction: column;
         gap: 24px;
 
+        &> :first-child {
+          margin-top: auto !important;
+          /* use !important to prevent breakage from child margin settings */
+        }
+
         .message {
           max-width: 500px;
-          background: #FF8A6D;
+          background: #2B16F0;
           backdrop-filter: blur(100px);
           border-radius: 26px 26px 26px 0px;
           padding: 20px;
@@ -47,7 +55,7 @@
           .action {
             cursor: pointer;
             background: #FFFFFF;
-            border: 1px solid #FF7351;
+            border: 1px solid #FE0046;
             border-radius: 10px;
             padding: 14px 16px;
 
@@ -56,6 +64,67 @@
             }
           }
         }
+
+        .projects-loading {
+          margin: auto;
+          width: 400px;
+          display: flex;
+          padding: 20px;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid #FE0046;
+          border-radius: 14px;
+
+          .title {
+            text-align: center;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 26px;
+          }
+
+          .illustration {
+            width: 200px;
+          }
+
+          .actions {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .find-projects {
+              cursor: pointer;
+              background: #FE0046;
+              box-shadow: 0px 10px 10px -5px rgba(240, 125, 106, 0.1),
+                0px 25px 20px -5px rgba(246, 177, 83, 0.04);
+              border-radius: 8px;
+              padding: 12px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              color: #FFFFFF;
+              font-weight: 800;
+              font-size: 18px;
+              line-height: 24px;
+            }
+          }
+        }
+      }
+
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #2C2850;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background: #FE0046;
       }
     }
   }

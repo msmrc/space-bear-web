@@ -2,25 +2,28 @@
   <div class="dialog">
     <div class="scroll">
       <div class="flex">
-        <div class="message">
-          Привет, я - Космический медведь, твой виртуальный помощник на
-          платформе SpaceBear!
-        </div>
         <!-- Если профиль не заполнен -->
         <ng-container *ngIf="!isFullProfileFilled">
           <div class="message">
+            Привет, я - Космический медведь, твой виртуальный помощник на
+            платформе SpaceBear!
+          </div>
+          <div class="message">
             С помощью инновационных технологий я могу подобрать для тебя
             идеальные проекты! Они тебе точно понравятся! Но... сначала нужно
-            заполнить профиль, это займет всего 5 минут! Что скажешь? Или... Ты
-            можешь создать собственный проект!
+            заполнить профиль, это займет всего 5 минут! Что скажешь?
+          </div>
+          <div class="message">
+            Заполненный профиль позволит тебе создавать свои собственные проекты
+            и присоединяться к другим
           </div>
           <div class="actions">
             <div class="action" (click)="onFillProfile()">
               Давай заполним профиль!
             </div>
-            <div class="action" (click)="onProjectCreate()">
+            <!-- <div class="action" (click)="onProjectCreate()">
               Создадим проект!
-            </div>
+            </div> -->
           </div>
         </ng-container>
 
@@ -39,14 +42,42 @@
             </div>
           </div>
         </ng-container>
-
         <ng-container *ngIf="isProjectsLoading; else projectsTemplate">
-          Загрузка
+          <div class="projects-loading">
+            <div class="title">
+              Подбираю проекты... Это может занять до 1 минуты
+            </div>
+            <div class="illustration">
+              <img src="../../../../../assets/images/lupa.png" alt="" />
+            </div>
+          </div>
         </ng-container>
         <ng-template #projectsTemplate>
-          <app-project-card
-            *ngFor="let project of projectsForMe$ | async"
-          ></app-project-card>
+          <ng-container *ngIf="projectsForMe.length > 0; else emptyTemplate">
+            <app-project-card
+              *ngFor="let project of projectsForMe"
+              [project]="project"
+              [isML]="true"
+            ></app-project-card>
+          </ng-container>
+          <ng-template #emptyTemplate>
+            <div class="projects-loading" *ngIf="isButtonPressed">
+              <div class="title">
+                К сожалению, мне не удалось найти подходящие проекты...
+              </div>
+              <div class="illustration">
+                <img src="../../../../../assets/images/lupa.png" alt="" />
+              </div>
+              <div class="actions">
+                <div
+                  [routerLink]="['/innovator/projects/all']"
+                  class="find-projects"
+                >
+                  Посмотреть все проекты
+                </div>
+              </div>
+            </div>
+          </ng-template>
         </ng-template>
       </div>
     </div>

@@ -3,7 +3,6 @@ import { tap } from 'rxjs';
 import { AppStore } from './../../../store/app.store';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserInterface } from 'src/app/shared/interfaces/user.interface';
 import { InProgressModalComponent } from 'src/app/shared/modules/in-progress-modal/in-progress-modal.component';
 
 @Component({

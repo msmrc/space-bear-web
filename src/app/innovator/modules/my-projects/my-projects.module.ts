@@ -9,6 +9,7 @@ import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { InnovatorProjectComponent } from './create-project/project-types/innovator-project/innovator-project.component';
 import { PillbarInputModule } from 'src/app/shared/modules/pillbar-input/pillbar-input.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProjectCardModule } from 'src/app/shared/modules/project-card/project-card.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyProjectsRoutingModule,
     MaterialModule,
     PillbarInputModule,
+    ProjectCardModule,
   ],
   exports: [],
   declarations: [

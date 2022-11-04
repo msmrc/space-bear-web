@@ -27,6 +27,9 @@ export interface ProjectInterface {
   views?: number; // просмотры
   rate?: RateInterface[]; // рейтинг
   comments?: CommentInterface[] // комментарии
+
+  // ml only
+  semantic?: number;
 }
 
 export interface CostByAdminInterface {

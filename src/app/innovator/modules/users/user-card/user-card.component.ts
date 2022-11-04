@@ -16,6 +16,9 @@ export class UserCardComponent implements OnInit {
   @Input()
   user!: UserProfileInterface;
 
+  @Input()
+  isML: boolean = false;
+
   constructor(
     private appStore: AppStore,
     private cdr: ChangeDetectorRef,

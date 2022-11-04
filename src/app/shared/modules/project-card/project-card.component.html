@@ -1,0 +1,144 @@
+<div class="project">
+  <div class="title">
+    <div class="name">
+      {{ project?.projectName }}
+      <div class="rate" matTooltip="Рейтинг">
+        <div class="score">{{ getProjectRate() }}</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/rate_to_the_moon.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="show-more" (click)="switchDetails()" *ngIf="!isProjectOwn">
+      <div class="name">{{ !isOpen ? "Раскрыть" : "Скрыть" }}</div>
+      <div class="icon">
+        <ng-container *ngIf="isOpen; else arrowDownTemplate">
+          <img src="../../../../../assets/icons/arrow_details_up.svg" alt="" />
+        </ng-container>
+        <ng-template #arrowDownTemplate>
+          <img
+            src="../../../../../assets/icons/arrow_details_down.svg"
+            alt=""
+          />
+        </ng-template>
+      </div>
+    </div>
+    <div class="action" [matMenuTriggerFor]="menu" *ngIf="isProjectOwn">
+      <img src="../../../../../assets/icons/more.svg" alt="" />
+    </div>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="viewProject()">Посмотреть</button>
+      <button mat-menu-item (click)="editProject()">Редактировать</button>
+      <button mat-menu-item (click)="stats()">Статистика</button>
+      <button mat-menu-item (click)="hide()">Скрыть</button>
+      <button mat-menu-item (click)="remove()">Удалить</button>
+    </mat-menu>
+  </div>
+
+  <div class="ml-semantic" *ngIf="isML">
+    Уровень совпадения: {{ project.semantic }}%
+  </div>
+
+  <div class="description">
+    {{ project.projectDescription }}
+  </div>
+
+  <div class="details" *ngIf="isProjectOwn">
+    <div class="stat-items">
+      <div class="stat" matTooltip="Просмотры">
+        <div class="count">{{ project.views }}</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/eye.svg" alt="" />
+        </div>
+      </div>
+      <div class="stat" matTooltip="Комментарии">
+        <div class="count">
+          {{ project.comments ? project.comments.length : 0 }}
+        </div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/comment.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="categories">
+    <div class="category" *ngFor="let tag of project.projectTags">
+      {{ tag }}
+    </div>
+  </div>
+
+  <div class="team" *ngIf="isProjectOwn">
+    <div class="title">Команда</div>
+    <div class="members">
+      <div
+        class="member"
+        *ngFor="let member of project.existTeam"
+        matTooltip="{{ getTooltip(member) }}"
+      >
+        <img src="../../../../../assets/images/avatar_another.svg" alt="CEO" />
+      </div>
+    </div>
+  </div>
+
+  <div class="required">
+    <div class="title">Требуются</div>
+    <div class="items">
+      <div class="item" *ngFor="let looking of project.lookingForTeam">
+        {{ looking.category }}
+      </div>
+    </div>
+  </div>
+  <div class="details" *ngIf="isOpen">
+    <div class="stat-items" *ngIf="!isProjectOwn">
+      <div class="stat" matTooltip="Просмотры">
+        <div class="count">{{ project.views }}</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/eye.svg" alt="" />
+        </div>
+      </div>
+      <div class="stat" matTooltip="Комментарии">
+        <div class="count">
+          {{ project.comments ? project.comments.length : 0 }}
+        </div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/comment.svg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="team" *ngIf="!isProjectOwn">
+      <div class="title">Команда</div>
+      <div class="members">
+        <div
+          class="member"
+          *ngFor="let member of project.existTeam"
+          matTooltip="{{ getTooltip(member) }}"
+        >
+          <img
+            src="../../../../../assets/images/avatar_another.svg"
+            alt="CEO"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="additional">
+      <div class="adv">
+        <!-- <div class="title">Особенности</div>
+        <div class="tags">
+          <div class="tag">Modern UI</div>
+          <div class="tag">Machine Learning</div>
+        </div> -->
+      </div>
+
+      <div class="more" (click)="openDetails()">
+        <div class="name">Подробнее</div>
+        <div class="icon">
+          <img src="../../../../../assets/icons/rate_to_the_right.svg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

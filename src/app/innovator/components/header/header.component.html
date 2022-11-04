@@ -4,17 +4,11 @@
       <img src="../../../../assets/images/logo.svg" alt="" />
     </div>
     <div class="links">
-      <!-- <a
-        class="links__item"
-        [routerLink]="['innovator']"
-        routerLinkActive="active"
-        >Главная</a
-      > -->
       <a
         class="links__item"
         [routerLink]="['projects/for-me']"
         routerLinkActive="active"
-        >Проекты для меня</a
+        >Главная</a
       >
       <a
         class="links__item"
@@ -23,13 +17,16 @@
         >Лента Проектов</a
       >
       <a class="links__item" [routerLink]="['bears']" routerLinkActive="active"
-        >Специалисты</a
+        >Сбор команды</a
       >
-      <a class="links__item" (click)="onInProgress()" routerLinkActive="active"
+      <!-- <a class="links__item" (click)="onInProgress()" routerLinkActive="active"
         >Блоги</a
       >
       <a class="links__item" routerLinkActive="active" (click)="onInProgress()"
         >Битва Проектов</a
+      > -->
+      <a class="links__item" routerLinkActive="active" (click)="onInProgress()"
+        >Чат</a
       >
     </div>
     <div class="profile" [matMenuTriggerFor]="menu">

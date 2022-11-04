@@ -5,19 +5,19 @@ mat-form-field {
   &.mat-form-field-appearance-fill {
     .mat-form-field-flex {
       padding: 8px 25px 0px 10px;
-      border: 1px solid transparent;
+      border: 1px solid #FFFFFF;
     }
   }
 }
 
 .mat-form-field-invalid {
   .mat-form-field-appearance-fill div.mat-form-field-flex {
-    border: 1px solid #FF3030;
-    background-color: #FF3030;
+    border: 1px solid #FFFFFF;
+    background-color: #2C2850;
   }
 
   mat-label {
-    color: #FF3030;
+    color: #FFFFFF;
   }
 }
 
@@ -32,10 +32,10 @@ mat-form-field {
 }
 
 .mat-form-field.mat-focused.mat-form-field-appearance-fill .mat-form-field-flex {
-  border: 1px solid #F6623E;
+  border: 1px solid #FFFFFF;
 
   mat-label {
-    color: #F6623E;
+    color: #FFFFFF;
   }
 }
 
@@ -53,7 +53,7 @@ span.mat-form-field-label-wrapper {
 
 mat-form-field.mat-form-field-appearance-fill div.mat-form-field-flex {
   border-radius: 10px;
-  background-color: #F9FAFB;
+  background-color: #2C2850;
 }
 
 mat-form-field.mat-form-field-appearance-fill .mat-form-field-infix {
@@ -84,4 +84,16 @@ span.mat-select-value-text {
 input.mat-input-element {
   position: relative;
   top: 1px;
+}
+
+.mat-select-value {
+  color: #FFFFFF;
+}
+
+.mat-select-arrow {
+  color: #FFFFFF;
+}
+
+.mat-raised-button:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 3px 1px -2px rgb(255 0 0 / 20%), 0px 2px 2px 0px rgb(255 0 0 / 14%), 0px 1px 5px 0px rgb(255 0 0 / 12%);
 }
