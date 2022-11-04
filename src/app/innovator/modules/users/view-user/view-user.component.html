@@ -1,87 +1,97 @@
 <div class="profile-view">
-  <div class="user-card main-card">
-    <div class="top-bar">
-      <div class="about">
-        <div class="avatar">
-          <img src="../../../../../assets/images/avatar_another.svg" alt="" />
-        </div>
-        <div class="main-information">
-          <div class="fio">Иванов Иван</div>
-          <div class="age">23 года, Россия</div>
-          <div class="features">
-            <div class="feature">
-              <div class="icon"></div>
-              <div class="name">Россия, Москва</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="actions">
-        <button mat-raised-button color="accent" (click)="invite()">
-          Пригласить в команду
-        </button>
-      </div>
-    </div>
-    <div class="tabs">
-      <div class="tab active">Основная информация</div>
-      <div class="tab disabled">Дополнительная информация</div>
-      <div class="tab disabled">История</div>
-      <div class="tab disabled">Созданные идеи</div>
-    </div>
-  </div>
-  <ng-container [ngSwitch]="activeTab">
-    <ng-container *ngSwitchCase="'general'">
-      <div class="user-card general-info">
-        <div class="title">Основная информация</div>
-        <div class="line"></div>
-        <div class="list">
-          <div class="item">
-            <div class="name">Имя</div>
-            <div class="value">Михаил</div>
-          </div>
-          <div class="item">
-            <div class="name">Фамилия</div>
-            <div class="value">Марцинюк</div>
-          </div>
-          <div class="item">
-            <div class="name">Отчество</div>
-            <div class="value">Сергеевич</div>
-          </div>
-          <div class="item">
-            <div class="name">Дата рождения</div>
-            <div class="value">22.01.1998</div>
-          </div>
-        </div>
-      </div>
-      <div class="user-card about">
-        <div class="title">Информация о специалисте</div>
-        <div class="line"></div>
-        <div class="description">
-          Работа в Металлинвестбанк, победа в хакатоне Лидеры цифровой
-          трансформации 2021
-        </div>
-      </div>
-      <div class="user-card category-and-skills">
-        <div class="title">Специализация и навыки</div>
-        <div class="line"></div>
-        <div class="category-and-skills__list">
-          <div class="section">
-            <div class="category">Frontend</div>
-            <div class="skills">
-              <div class="skill">HTML</div>
-              <div class="skill">SCSS</div>
-              <div class="skill">Angular</div>
-            </div>
-          </div>
-          <div class="section">
-            <div class="category">Backend</div>
-            <div class="skills">
-              <div class="skill">PHP</div>
-              <div class="skill">JavaScript</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
+  <ng-container *ngIf="isUserLoading; else userTemplate">
+    Загрузка...
   </ng-container>
+  <ng-template #userTemplate>
+    <div class="user-card main-card">
+      <div class="top-bar">
+        <div class="about">
+          <div class="avatar">
+            <img src="../../../../../assets/images/avatar_another.svg" alt="" />
+          </div>
+          <div class="main-information">
+            <div class="fio">
+              {{ currentUser.firstName }} {{ currentUser.secondName }}
+            </div>
+            <!-- <div class="age">23 года, Россия</div> -->
+            <div class="features">
+              <div class="feature">
+                <div class="icon"></div>
+                <div class="name">
+                  {{ currentUser.country }}, {{ currentUser.city }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <button mat-raised-button color="accent" (click)="invite()">
+            Пригласить в команду
+          </button>
+        </div>
+      </div>
+      <div class="tabs">
+        <div class="tab active">Основная информация</div>
+        <div class="tab disabled">Дополнительная информация</div>
+        <div class="tab disabled">История</div>
+        <div class="tab disabled">Созданные идеи</div>
+      </div>
+    </div>
+    <ng-container [ngSwitch]="activeTab">
+      <ng-container *ngSwitchCase="'general'">
+        <div class="user-card general-info">
+          <div class="title">Основная информация</div>
+          <div class="line"></div>
+          <div class="list">
+            <div class="item">
+              <div class="name">Имя</div>
+              <div class="value">{{ currentUser.firstName }}</div>
+            </div>
+            <div class="item">
+              <div class="name">Фамилия</div>
+              <div class="value">{{ currentUser.secondName }}</div>
+            </div>
+            <div class="item">
+              <div class="name">Отчество</div>
+              <div class="value">
+                {{ currentUser.lastName ? currentUser.lastName : "-" }}
+              </div>
+            </div>
+            <div class="item">
+              <div class="name">Дата рождения</div>
+              <div class="value">
+                {{ currentUser.birthDate ? currentUser.birthDate : "-" }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-card about">
+          <div class="title">Информация о специалисте</div>
+          <div class="line"></div>
+          <div class="description">
+            {{
+              currentUser.aboutDescription ? currentUser.aboutDescription : "-"
+            }}
+          </div>
+        </div>
+        <div class="user-card category-and-skills">
+          <div class="title">Специализация и навыки</div>
+          <div class="line"></div>
+          <div class="category-and-skills__list">
+            <div
+              class="section"
+              *ngFor="let skillInfo of currentUser.skillInformation"
+            >
+              <div class="category">{{ skillInfo.category }}</div>
+              <div class="skills">
+                <div class="skill" *ngFor="let skill of skillInfo.skills">
+                  {{ skill }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-template>
 </div>

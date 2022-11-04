@@ -1,7 +1,7 @@
 .profile-fill {
   position: relative;
   width: 956px;
-  background: #FFFFFF;
+  background: #2C274F;
   border-radius: 16px;
   padding: 56px;
 
@@ -11,6 +11,8 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  color: #ffffff;
 
   .section {
     display: flex;
@@ -22,7 +24,7 @@
         font-weight: 600;
         font-size: 24px;
         line-height: 28px;
-        color: #392927;
+        color: #ffffff;
         margin-bottom: 14px;
       }
 
@@ -30,7 +32,7 @@
         font-weight: 400;
         font-size: 17px;
         line-height: 24px;
-        color: #392927;
+        color: #ffffff;
       }
     }
 
@@ -58,6 +60,10 @@
 
 
     align-items: center;
+
+    .description {
+      color: black;
+    }
 
     .buttons {
       display: flex;

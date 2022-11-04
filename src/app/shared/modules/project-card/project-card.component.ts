@@ -55,6 +55,7 @@ export class ProjectCardComponent implements OnInit {
   public openDetails(): void {
     const dialogRef = this.dialog.open(ProjectDetailsComponent, {
       width: '800px',
+      panelClass: 'bear-dialog',
       data: {
         id: this.project._id
       }

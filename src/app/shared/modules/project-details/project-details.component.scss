@@ -8,7 +8,7 @@
       font-weight: 800;
       font-size: 40px;
       line-height: 48px;
-      color: #333F48;
+      color: #FFFFFF;
       margin-bottom: 12px;
     }
 
@@ -52,13 +52,14 @@
       .category {
         width: fit-content;
         padding: 8px 24px;
-        background: #FFF4EC;
+        background: transparent;
         border-radius: 6px;
 
         font-weight: 700;
         font-size: 14px;
         line-height: 18px;
         color: #FE0046;
+        border: 1px solid #FE0046;
       }
     }
   }
@@ -85,7 +86,7 @@
         font-weight: 800;
         font-size: 24px;
         line-height: 30px;
-        color: #333F48;
+        color: #FFFFFF;
       }
 
       .icon {}
@@ -96,7 +97,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    color: #181818;
+    color: #FFFFFF;
   }
 
   .to-the-team {
@@ -112,7 +113,7 @@
       font-weight: 700;
       font-size: 20px;
       line-height: 18px;
-      color: #333F48;
+      color: #FFFFFF;
     }
 
     .member-list {
@@ -159,7 +160,7 @@
           font-size: 16px;
           line-height: 20px;
           text-align: center;
-          color: #000000;
+          color: #FFFFFF;
           margin-bottom: 12px;
         }
 
@@ -181,7 +182,7 @@
       font-weight: 700;
       font-size: 20px;
       line-height: 18px;
-      color: #333F48;
+      color: #FFFFFF;
       margin-bottom: 24px;
     }
 
@@ -200,9 +201,10 @@
         font-weight: 700;
         font-size: 14px;
         line-height: 18px;
-        color: #1E1E1E;
+        color: #FE0046;
         padding: 8px 24px;
-        background: #F4F4F4;
+        background: transparent;
+        border: 1px solid #FE0046;
         border-radius: 6px;
       }
 
@@ -216,9 +218,10 @@
           font-weight: 700;
           font-size: 14px;
           line-height: 18px;
-          color: #1E1E1E;
+          color: #FE0046;
           padding: 8px 24px;
-          background: #F4F4F4;
+          background: transparent;
+          border: 1px solid #FE0046;
           border-radius: 6px;
         }
       }
@@ -234,7 +237,7 @@
       font-weight: 700;
       font-size: 14px;
       line-height: 18px;
-      color: #333F48;
+      color: #FFFFFF;
     }
 
     .tags {
@@ -291,7 +294,7 @@
           font-weight: 700;
           font-size: 14px;
           line-height: 18px;
-          color: #1E1E1E;
+          color: #FFFFFF;
         }
 
         .main-category {
@@ -310,7 +313,7 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        color: #000000;
+        color: #FFFFFF;
       }
     }
   }

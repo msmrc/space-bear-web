@@ -4,6 +4,8 @@ import { UserProfileInterface } from 'src/app/shared/interfaces/user-profile.int
 import { UserService } from 'src/app/shared/services/user.service';
 import { AppStore } from 'src/app/store/app.store';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { InProgressModalComponent } from 'src/app/shared/modules/in-progress-modal/in-progress-modal.component';
 
 @Component({
   selector: 'app-user-card',
@@ -23,6 +25,7 @@ export class UserCardComponent implements OnInit {
     private appStore: AppStore,
     private cdr: ChangeDetectorRef,
     private userService: UserService,
+    private dialog: MatDialog,
     private router: Router,
   ) { }
 
@@ -30,11 +33,23 @@ export class UserCardComponent implements OnInit {
 
   }
 
+  public getSkills(): string[] {
+    const skills: string[] = [];
+
+    this.user.skillInformation.forEach((x) => x.skills.forEach((skill) => skills.push(skill)));
+    return skills
+  }
+
   public invite() {
     // Открыть диалог
+    this.openInProgress();
   }
 
   public viewUser() {
     this.router.navigate([`/innovator/bears/view/${this.user._id}`]);
+  }
+
+  public openInProgress() {
+    this.dialog.open(InProgressModalComponent);
   }
 }

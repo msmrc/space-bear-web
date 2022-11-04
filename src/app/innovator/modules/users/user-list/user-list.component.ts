@@ -1,6 +1,6 @@
 import { switchMap } from 'rxjs/operators';
 import { ProjectInterface } from 'src/app/shared/interfaces/project.interface';
-import { of, tap } from 'rxjs';
+import { forkJoin, Observable, of, tap } from 'rxjs';
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { UserProfileInterface } from 'src/app/shared/interfaces/user-profile.interface';
 import { UserService } from 'src/app/shared/services/user.service';
@@ -19,7 +19,7 @@ export class UserListComponent implements OnInit {
 
   public selectedProject!: ProjectInterface;
 
-  public userList: UserProfileInterface[] = [];
+  public userForMeList: UserProfileInterface[] = [];
 
   public haveProjects: boolean = false;
   public isUserFullProfile: boolean = false;
@@ -31,6 +31,9 @@ export class UserListComponent implements OnInit {
   // выбор проекта
   public projectInput = new FormControl('');
   public projectsList: ProjectInterface[] = []
+
+  private usersMoreFifty: any[] = [];
+  private currentUserId!: string;
 
   constructor(
     private appStore: AppStore,
@@ -47,6 +50,7 @@ export class UserListComponent implements OnInit {
       switchMap((user) => {
         if (user && user.fullUser) {
           this.isUserFullProfile = true;
+          this.currentUserId = user.fullUser?._id!;
           return this.projectService.getProjectsByMemberId(user.fullUser._id!)
         } else {
           this.isUserFullProfile = false;
@@ -74,11 +78,53 @@ export class UserListComponent implements OnInit {
   }
 
   public selectProject() {
-    this.isUserListLoading = true
+    this.isUserListLoading = true;
+
+
+    this.usersMoreFifty = [];
+    const userRequests: Observable<UserProfileInterface>[] = [];
+
+
     this.projectService.getBearsForProject(this.projectInput.value).pipe(
-      tap((response) => {
-        console.log('resp', response);
+      tap((users) => {
+        for (const [key, value] of Object.entries(users)) {
+          // key = projectId
+          // value.semantic = semantic to fixed & * 100
+          const semantic = +(value.semantic as Number).toFixed(2) * 100;
+          if (semantic >= 70 && key !== this.currentUserId) {
+            this.usersMoreFifty.push({
+              id: key,
+              semantic: semantic
+            })
+          }
+        }
+      }),
+      tap(() => {
+        // подготовка к запросам на сервер
+        if (this.usersMoreFifty.length > 0) {
+          this.usersMoreFifty.forEach((x) => userRequests.push(this.userService.getUserProfileById(x.id)))
+        }
+      }),
+      switchMap(() => userRequests.length > 0 ? forkJoin(userRequests) : of(false)),
+      tap((users: UserProfileInterface[] | boolean) => {
+        if (Array.isArray(users)) {
+          users.forEach(user => {
+            if (user) {
+              // задаем семантику
+              this.usersMoreFifty.forEach(semanticUser => {
+                if (user._id === semanticUser.id) {
+                  user.semantic = semanticUser.semantic;
+                  this.userForMeList.push(user);
+                }
+              })
+            }
+
+          })
+        }
+        this.userForMeList.sort((current, prev) => prev.semantic! - current.semantic!)
+        console.log(this.userForMeList);
         this.isUserListLoading = false;
+        this.cdr.detectChanges();
       })
     ).subscribe();
   }

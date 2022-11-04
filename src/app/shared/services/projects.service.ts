@@ -30,7 +30,7 @@ export class ProjectsService {
     return this.httpClient.get<any[]>(`${environment.apiUrlML}search_projects_for_specialist/${profileId}`)
   }
 
-  getBearsForProject(projectId: string): Observable<any> {
+  getBearsForProject(projectId: string): Observable<any[]> {
     return this.httpClient.get<any[]>(`${environment.apiUrlML}search_specialists_for_project/${projectId}`)
   }
 

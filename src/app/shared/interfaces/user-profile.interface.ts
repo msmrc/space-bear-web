@@ -13,6 +13,9 @@ export interface UserProfileInterface {
   interestedTags: string[]; // что интересно (vr / ml / экология)
   experience?: string; // уровень аккаунта
   aboutDescription: string; // о себе
+
+  // ml
+  semantic?: number;
 }
 
 export interface SkillInformationInterface {

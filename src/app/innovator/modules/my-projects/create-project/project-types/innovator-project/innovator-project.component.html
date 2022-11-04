@@ -12,7 +12,7 @@
   <ng-container [ngSwitch]="currentTab">
     <ng-container *ngSwitchCase="1">
       <form [formGroup]="form" class="create-project">
-        <div class="change-type">
+        <!-- <div class="change-type">
           <div class="current-type">
             <div class="title">Академия инноваторов</div>
             <div class="description">
@@ -23,7 +23,7 @@
           <div class="action">
             <button mat-raised-button color="accent">Изменить</button>
           </div>
-        </div>
+        </div> -->
         <div class="section">
           <div class="info">
             <div class="title">Основное</div>
@@ -137,14 +137,14 @@
                     </mat-form-field>
                   </div>
                   <div class="width-50">
-                    <div>
-                      Перед выбором Навыков, пожалуйста, выберите Специальность
-                    </div>
                     <app-pillbar-input
                       formControlName="skills"
                       label="Навыки*"
                       [possibleValues]="getAvailbleSkills(i)"
                     ></app-pillbar-input>
+                    <div class="title">
+                      Перед выбором Навыков, пожалуйста, выберите Специальность
+                    </div>
                   </div>
                 </div>
               </div>

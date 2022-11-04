@@ -5,37 +5,45 @@
         <img src="../../../../../assets/images/avatar_another.svg" alt="" />
       </div>
       <div class="bear">
-        <div class="fio">Иванов Иван 23 года</div>
+        <div class="fio">{{ user.firstName }} {{ user.secondName }}</div>
         <div class="about-items">
           <div class="item">
             <div class="icon"></div>
-            <div class="value">Россия, Москва</div>
+            <div class="value">{{ user.country }}, {{ user.city }}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="actions" [matMenuTriggerFor]="menu">
+    <!-- <div class="actions" [matMenuTriggerFor]="menu">
       <img src="../../../../../assets/icons/more.svg" alt="" />
     </div>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="viewUser()">Перейти в профиль</button>
-    </mat-menu>
+    </mat-menu> -->
+  </div>
+
+  <div class="ml-semantic" *ngIf="isML">
+    Уровень совпадения: {{ user.semantic }}%
   </div>
 
   <div class="skills">
+    <div class="title">Увлечения</div>
+    <div class="items">
+      <div class="item" *ngFor="let tag of user.interestedTags">{{ tag }}</div>
+    </div>
+  </div>
+  <div class="skills">
     <div class="title">Специализация</div>
     <div class="items">
-      <div class="item">Frontend</div>
-      <div class="item">Backend</div>
-      <div class="item">Backend</div>
+      <div class="item" *ngFor="let skillInfo of user.skillInformation">
+        {{ skillInfo.category }}
+      </div>
     </div>
   </div>
   <div class="skills">
     <div class="title">Навыки</div>
     <div class="items">
-      <div class="item">С++</div>
-      <div class="item">С#</div>
-      <div class="item">ReactJS</div>
+      <div class="item" *ngFor="let skill of getSkills()">{{ skill }}</div>
     </div>
   </div>
 

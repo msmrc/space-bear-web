@@ -74,7 +74,6 @@ export class ProjectsForMeComponent implements OnInit {
             })
           }
         }
-
       }),
       tap(() => {
         // подготовка к запросам на сервер

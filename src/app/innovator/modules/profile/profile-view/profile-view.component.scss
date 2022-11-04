@@ -13,19 +13,19 @@
     padding: 24px;
     gap: 12px;
     border-radius: 16px;
-    background: #ffffff;
+    background: #2C274F;
 
     .title {
       font-weight: 600;
       font-size: 24px;
       line-height: 28px;
-      color: #333F48;
+      color: #FFFFFF;
     }
 
     .line {
       width: 100%;
       height: 1px;
-      background: #E6EAEE;
+      background: #DDDDDD
     }
 
     &.main-card {
@@ -59,20 +59,19 @@
               font-weight: 700;
               font-size: 22px;
               line-height: 22px;
-              color: #333F48;
+              color: #FFFFFF;
             }
 
             .age {
               font-weight: 400;
               font-size: 14px;
               line-height: 18px;
-              color: #181818;
+              color: #FFFFFF;
             }
 
             .features {
               display: flex;
               flex-direction: row;
-              flex-wrap: wrap;
               gap: 12px;
 
               .feature {
@@ -89,6 +88,7 @@
       .tabs {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         gap: 24px;
 
         .tab {
@@ -96,7 +96,7 @@
           font-weight: 700;
           font-size: 14px;
           line-height: 18px;
-          color: #181818;
+          color: #FFFFFF;
 
 
           &.active {
@@ -128,14 +128,14 @@
             font-weight: 700;
             font-size: 14px;
             line-height: 16px;
-            color: #A2A5B5;
+            color: #FFFFFF;
           }
 
           .value {
             font-weight: 700;
             font-size: 14px;
             line-height: 16px;
-            color: #000000;
+            color: #FFFFFF;
           }
         }
       }
@@ -148,7 +148,7 @@
         font-weight: 400;
         font-size: 17px;
         line-height: 24px;
-        color: #392927;
+        color: #FFFFFF;
       }
     }
 

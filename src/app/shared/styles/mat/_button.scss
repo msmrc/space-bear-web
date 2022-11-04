@@ -15,6 +15,11 @@
     display: flex;
     align-items: center;
   }
+
+  &.second {
+    background: #2C2850;
+    border: 1px solid #FE0046;
+  }
 }
 
 .max-width {
@@ -26,4 +31,9 @@
     display: flex;
     align-items: center;
   }
+}
+
+.mat-progress-spinner.mat-warn circle,
+.mat-spinner.mat-warn circle {
+  stroke: #ffffff;
 }

@@ -54,7 +54,7 @@ body {
       font-weight: 600;
       font-size: 16px;
       line-height: 16px;
-      color: #000000;
+      color: #ffffff;
     }
 
     .action {
@@ -62,7 +62,7 @@ body {
       font-weight: 800;
       font-size: 14px;
       line-height: 16px;
-      color: #FF7351;
+      color: #FE0046;
     }
   }
 
@@ -83,4 +83,14 @@ body {
       justify-content: space-between;
     }
   }
+}
+
+
+.mat-dialog-container {
+  background: #2C2850;
+  border-radius: 16px !important;
+}
+
+.mat-divider {
+  border-top-color: #FFFFFF;
 }

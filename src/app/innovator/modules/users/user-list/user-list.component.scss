@@ -5,4 +5,16 @@
   flex-direction: column;
 
   gap: 24px;
+
+
+  .list-subtitle {
+    color: #ffffff;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
 }

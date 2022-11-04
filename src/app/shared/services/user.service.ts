@@ -19,4 +19,9 @@ export class UserService {
   createProfile(user: UserProfileInterface): Observable<UserProfileInterface> {
     return this.httpClient.post<UserProfileInterface>(`${environment.apiUrl}users/create`, user);
   }
+
+
+  getUserProfileById(id: string): Observable<UserProfileInterface> {
+    return this.httpClient.get<UserProfileInterface>(`${environment.apiUrl}users/get-user-by-profile-id/${id}`)
+  }
 }

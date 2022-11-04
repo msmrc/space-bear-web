@@ -18,7 +18,7 @@
     }
 
     &.disabled {
-      cursor: default;
+      cursor: not-allowed;
       color: #5C5C5C;
     }
   }
@@ -27,7 +27,7 @@
 .create-project {
   position: relative;
   width: 956px;
-  background: #FFFFFF;
+  background: #2C2850;
   border-radius: 16px;
   padding: 56px;
   margin: auto;
@@ -56,14 +56,14 @@
         font-weight: 700;
         font-size: 22px;
         line-height: 130%;
-        color: #0C0B0E;
+        color: #ffffff;
       }
 
       .description {
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        color: #181818;
+        color: #ffffff;
       }
     }
   }
@@ -78,7 +78,7 @@
         font-weight: 600;
         font-size: 24px;
         line-height: 28px;
-        color: #392927;
+        color: #ffffff;
         margin-bottom: 14px;
       }
 
@@ -86,7 +86,7 @@
         font-weight: 400;
         font-size: 17px;
         line-height: 24px;
-        color: #392927;
+        color: #ffffff;
       }
     }
 
@@ -121,4 +121,21 @@
       gap: 4px;
     }
   }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    .action {
+      cursor: pointer;
+      color: #FE0046;
+    }
+  }
+
+  .title {
+    color: #ffffff;
+  }
+
 }

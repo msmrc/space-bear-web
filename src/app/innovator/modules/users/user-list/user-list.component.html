@@ -5,10 +5,14 @@
     </ng-container>
     <ng-template #userListTemplate>
       <ng-container *ngIf="haveProjects; else createProjectTemplate">
+        <div class="list-subtitle">
+          Данный функционал использует Машинное Обучение и подбирает идеальных
+          кандидатов для Вашего проекта на основе множества параметров, а также
+          на основе NLP.
+        </div>
         <div class="select-project">
           <div class="illustration"></div>
           <div class="form">
-            <div class="title"></div>
             <mat-form-field appearance="fill">
               <mat-label>Выберите проект</mat-label>
               <mat-select [formControl]="projectInput" class="w-field">
@@ -34,7 +38,7 @@
         <ng-template #userListResultTemplate>
           <app-user-card
             class="user"
-            *ngFor="let user of userList"
+            *ngFor="let user of userForMeList"
             [user]="user"
             [isML]="true"
           >

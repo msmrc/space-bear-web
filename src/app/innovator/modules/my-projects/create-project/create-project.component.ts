@@ -11,8 +11,8 @@ import { AppStore } from 'src/app/store/app.store';
 })
 export class CreateProjectComponent implements OnInit, OnDestroy {
 
-  public step: number = 1;
-  public selectedProjectType = '';
+  public step: number = 2;
+  public selectedProjectType = 'innovator';
 
   public isNoUserProfile = false;
 
@@ -24,7 +24,7 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.appStore.setPageTitle('Добавление проекта');
-    this.appStore.setPageSubtitle('Выберете одно из нескольких направлений');
+    // this.appStore.setPageSubtitle('Выберете одно из нескольких направлений');
 
     this.appStore.user$.pipe(
       tap((user) => {
