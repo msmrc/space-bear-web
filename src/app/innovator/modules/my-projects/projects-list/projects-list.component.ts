@@ -23,9 +23,9 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.appStore.setPageTitle('Мои проекты');
+    this.appStore.setPageTitle('Мои идеи');
     this.appStore.setPageAction({
-      actionName: 'Добавить проект +',
+      actionName: 'Добавить идею +',
       actionCallback: this.createProject
     });
 

@@ -8,12 +8,13 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserProfileInterface } from 'src/app/shared/interfaces/user-profile.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserInterface } from 'src/app/shared/interfaces/user.interface';
+import { PersistenceService } from 'src/app/tools/persistence.service';
 
 
 @Component({
   selector: 'profile-fill',
   templateUrl: 'profile-fill.component.html',
-  styleUrls: ['./profile-fill.component.scss']
+  styleUrls: ['./profile-fill.component.scss'],
 })
 export class ProfileFillComponent implements OnInit {
 
@@ -32,7 +33,8 @@ export class ProfileFillComponent implements OnInit {
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private dictionariesService: DictionariesService,
-    private userService: UserService
+    private persistenceService: PersistenceService,
+    private userService: UserService,
   ) {
   }
 
@@ -76,10 +78,13 @@ export class ProfileFillComponent implements OnInit {
 
     this.userService.createProfile(user).pipe(tap((updatedUser) => {
       this.snackBar.open('Успешно! Ваш профиль обновлен', 'Отлично');
-      this.appStore.setUser({
+      const newAppUser = {
         ...this.currentUser,
         fullUser: updatedUser,
-      })
+      }
+      this.appStore.setUser(newAppUser);
+      this.persistenceService.set('user', newAppUser);
+
       // set user to appStore
       // redirect to Bot
     })).subscribe();

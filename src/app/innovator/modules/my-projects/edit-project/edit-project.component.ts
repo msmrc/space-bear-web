@@ -10,6 +10,6 @@ export class EditProjectComponent implements OnInit {
   constructor(private appStore: AppStore) { }
 
   ngOnInit() {
-    this.appStore.setPageTitle('Редактирование проекта');
+    this.appStore.setPageTitle('Редактирование идеи');
   }
 }

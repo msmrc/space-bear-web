@@ -35,11 +35,11 @@ export class InnovatorProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.appStore.setPageSubtitle('Заполните все необходимые данные');
     this.appStore.user$.pipe(tap((user) => {
       if (user) {
         const fullProfile = user.fullUser;
         if (fullProfile?._id) {
+          this.appStore.setPageSubtitle('Заполните все необходимые данные');
           this.fullProfileId = fullProfile._id;
         }
       }
@@ -77,7 +77,7 @@ export class InnovatorProjectComponent implements OnInit {
 
     this.projectService.createProject(project).pipe(
       tap(() => {
-        this.snackBar.open('Успешно! Ваш проект обновлен', 'Отлично');
+        this.snackBar.open('Успешно! Ваша идея обновлена', 'Отлично');
       })
     ).subscribe();
   }

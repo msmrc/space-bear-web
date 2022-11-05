@@ -10,12 +10,12 @@
           </div>
           <div class="message">
             С помощью инновационных технологий я могу подобрать для тебя
-            идеальные проекты! Они тебе точно понравятся! Но... сначала нужно
+            идеальные идеи! Они тебе точно понравятся! Но... сначала нужно
             заполнить профиль, это займет всего 5 минут! Что скажешь?
           </div>
           <div class="message">
-            Заполненный профиль позволит тебе создавать свои собственные проекты
-            и присоединяться к другим
+            Заполненный профиль позволит тебе создавать свои собственные идеи и
+            присоединяться к другим
           </div>
           <div class="actions">
             <div class="action" (click)="onFillProfile()">
@@ -31,21 +31,21 @@
         <ng-container *ngIf="isFullProfileFilled">
           <div class="message">
             Ты вернулся! Похоже, мне хватает информации для подбора идеальных
-            проектов, приступим?
+            идей, приступим?
           </div>
           <div class="actions">
             <div class="action selected" (click)="getProjects()">
               Подобрать!
             </div>
             <div class="action" (click)="onProjectCreate()">
-              Создадим свой проект!
+              Создадим свою идею!
             </div>
           </div>
         </ng-container>
         <ng-container *ngIf="isProjectsLoading; else projectsTemplate">
           <div class="projects-loading">
             <div class="title">
-              Подбираю проекты... Это может занять до 1 минуты
+              Подбираю идеи... Это может занять до 1 минуты
             </div>
             <div class="illustration">
               <img src="../../../../../assets/images/lupa.png" alt="" />
@@ -63,7 +63,7 @@
           <ng-template #emptyTemplate>
             <div class="projects-loading" *ngIf="isButtonPressed">
               <div class="title">
-                К сожалению, мне не удалось найти подходящие проекты...
+                К сожалению, мне не удалось найти подходящие идеи...
               </div>
               <div class="illustration">
                 <img src="../../../../../assets/images/lupa.png" alt="" />
@@ -73,7 +73,7 @@
                   [routerLink]="['/innovator/projects/all']"
                   class="find-projects"
                 >
-                  Посмотреть все проекты
+                  Посмотреть все идеи
                 </div>
               </div>
             </div>

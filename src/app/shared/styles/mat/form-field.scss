@@ -101,3 +101,12 @@ input.mat-input-element {
 .mat-input-element::placeholder {
   color: #FFFFFF;
 }
+
+input:-internal-autofill-selected {
+  background: transparent !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}

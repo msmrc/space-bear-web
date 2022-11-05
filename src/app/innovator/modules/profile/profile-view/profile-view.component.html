@@ -4,123 +4,147 @@
   </ng-container>
   <ng-template #userTemplate>
     <div class="profile-view">
-      <div class="user-card main-card">
-        <div class="top-bar">
-          <div class="about">
-            <div class="avatar">
-              <img
-                src="../../../../../assets/images/avatar_another.svg"
-                alt=""
-              />
-            </div>
-            <div class="main-information">
-              <div class="fio">
-                {{
-                  isNoFullProfile
-                    ? "spacebear-591259"
-                    : currentFullUser.firstName
-                }}
-                {{ isNoFullProfile ? "" : currentFullUser.secondName }}
-              </div>
-              <div class="age"></div>
-              <div class="features">
-                <div class="feature">
-                  <div class="icon"></div>
-                  <div class="name">
-                    {{
-                      currentFullUser.country ? currentFullUser.country : "-"
-                    }}
-                    {{ currentFullUser.city ? currentFullUser.city : "" }}
-                  </div>
-                </div>
-              </div>
-            </div>
+      <ng-container *ngIf="isNoFullProfile; else userProfileTemplate">
+        <div class="create-project">
+          <div class="title">
+            Чтобы использовать этот функционал необходимо заполнить профиль
           </div>
-          <div class="actions">
-            <button mat-raised-button color="accent" (click)="toEdit()">
-              Редактировать
+          <div class="illustration"></div>
+          <div class="action">
+            <button
+              mat-raised-button
+              color="accent"
+              class="width-100"
+              [routerLink]="['/innovator/profile/fill']"
+            >
+              Заполнить профиль
             </button>
           </div>
         </div>
-        <div class="tabs">
-          <div class="tab active">Основная информация</div>
-          <div class="tab disabled">Дополнительная информация</div>
-          <div class="tab disabled">История</div>
-          <div class="tab disabled">Созданные идеи</div>
-        </div>
-      </div>
-      <ng-container [ngSwitch]="activeTab">
-        <ng-container *ngSwitchCase="'general'">
-          <div class="user-card general-info">
-            <div class="title">Основная информация</div>
-            <div class="line"></div>
-            <div class="list">
-              <div class="item">
-                <div class="name">Имя</div>
-                <div class="value">
-                  {{
-                    currentFullUser.firstName ? currentFullUser.firstName : "-"
-                  }}
-                </div>
+      </ng-container>
+      <ng-template #userProfileTemplate>
+        <div class="user-card main-card">
+          <div class="top-bar">
+            <div class="about">
+              <div class="avatar">
+                <img
+                  src="../../../../../assets/images/avatar_another.svg"
+                  alt=""
+                />
               </div>
-              <div class="item">
-                <div class="name">Фамилия</div>
-                <div class="value">
+              <div class="main-information">
+                <div class="fio">
                   {{
-                    currentFullUser.secondName
-                      ? currentFullUser.secondName
-                      : "-"
+                    isNoFullProfile
+                      ? "spacebear-591259"
+                      : currentFullUser.firstName
                   }}
+                  {{ isNoFullProfile ? "" : currentFullUser.secondName }}
                 </div>
-              </div>
-              <div class="item">
-                <div class="name">Отчество</div>
-                <div class="value">
-                  {{
-                    currentFullUser.lastName ? currentFullUser.lastName : "-"
-                  }}
-                </div>
-              </div>
-              <div class="item">
-                <div class="name">Дата рождения</div>
-                <div class="value">
-                  {{
-                    currentFullUser.birthDate ? currentFullUser.birthDate : "-"
-                  }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="user-card about">
-            <div class="title">Информация о специалисте</div>
-            <div class="line"></div>
-            <div class="description">
-              {{
-                currentFullUser.aboutDescription
-                  ? currentFullUser.aboutDescription
-                  : "-"
-              }}
-            </div>
-          </div>
-          <div class="user-card category-and-skills">
-            <div class="title">Специализация и навыки</div>
-            <div class="line"></div>
-            <div class="category-and-skills__list">
-              <div
-                class="section"
-                *ngFor="let skillInfo of currentFullUser.skillInformation"
-              >
-                <div class="category">{{ skillInfo.category }}</div>
-                <div class="skills">
-                  <div class="skill" *ngFor="let skill of skillInfo.skills">
-                    {{ skill }}
+                <div class="age"></div>
+                <div class="features">
+                  <div class="feature">
+                    <div class="icon"></div>
+                    <div class="name">
+                      {{
+                        currentFullUser.country ? currentFullUser.country : "-"
+                      }}
+                      {{ currentFullUser.city ? currentFullUser.city : "" }}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="actions">
+              <button mat-raised-button color="accent" (click)="toEdit()">
+                Редактировать
+              </button>
+            </div>
           </div>
+          <div class="tabs">
+            <div class="tab active">Основная информация</div>
+            <div class="tab disabled">Дополнительная информация</div>
+            <div class="tab disabled">История</div>
+            <div class="tab disabled">Созданные идеи</div>
+          </div>
+        </div>
+        <ng-container [ngSwitch]="activeTab">
+          <ng-container *ngSwitchCase="'general'">
+            <div class="user-card general-info">
+              <div class="title">Основная информация</div>
+              <div class="line"></div>
+              <div class="list">
+                <div class="item">
+                  <div class="name">Имя</div>
+                  <div class="value">
+                    {{
+                      currentFullUser.firstName
+                        ? currentFullUser.firstName
+                        : "-"
+                    }}
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="name">Фамилия</div>
+                  <div class="value">
+                    {{
+                      currentFullUser.secondName
+                        ? currentFullUser.secondName
+                        : "-"
+                    }}
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="name">Отчество</div>
+                  <div class="value">
+                    {{
+                      currentFullUser.lastName ? currentFullUser.lastName : "-"
+                    }}
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="name">Дата рождения</div>
+                  <div class="value">
+                    {{
+                      currentFullUser.birthDate
+                        ? currentFullUser.birthDate
+                        : "-"
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="user-card about">
+              <div class="title">Информация о специалисте</div>
+              <div class="line"></div>
+              <div class="description">
+                {{
+                  currentFullUser.aboutDescription
+                    ? currentFullUser.aboutDescription
+                    : "-"
+                }}
+              </div>
+            </div>
+            <div class="user-card category-and-skills">
+              <div class="title">Специализация и навыки</div>
+              <div class="line"></div>
+              <div class="category-and-skills__list">
+                <div
+                  class="section"
+                  *ngFor="let skillInfo of currentFullUser.skillInformation"
+                >
+                  <div class="category">{{ skillInfo.category }}</div>
+                  <div class="skills">
+                    <div class="skill" *ngFor="let skill of skillInfo.skills">
+                      {{ skill }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
         </ng-container>
-      </ng-container>
+      </ng-template>
     </div>
   </ng-template>
 </div>

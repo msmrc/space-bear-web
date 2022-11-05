@@ -1,6 +1,6 @@
 <div class="header">
   <div class="nav">
-    <div class="logo">
+    <div class="logo" [routerLink]="['projects/for-me']">
       <img src="../../../../assets/images/logo3.svg" alt="" />
       <!-- <img src="../../../../assets/images/logos.svg" alt="" /> -->
     </div>
@@ -15,7 +15,7 @@
         class="links__item"
         [routerLink]="['projects/all']"
         routerLinkActive="active"
-        >Лента Проектов</a
+        >Лента Идей</a
       >
       <a class="links__item" [routerLink]="['bears']" routerLinkActive="active"
         >Сбор команды</a
@@ -43,7 +43,7 @@
     </div>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="openProfile()">Мой профиль</button>
-      <button mat-menu-item (click)="openProjects()">Мои проекты</button>
+      <button mat-menu-item (click)="openProjects()">Мои идеи</button>
       <button mat-menu-item (click)="exit()">Выход</button>
     </mat-menu>
   </div>

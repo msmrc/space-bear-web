@@ -1,6 +1,31 @@
 <div class="project-list">
-  <app-project-card
-    *ngFor="let project of projects"
-    [project]="project"
-  ></app-project-card>
+  <ng-container *ngIf="isProjectsLoading; else projectsTemplate">
+    <div class="loading">
+      <video
+        width="600"
+        height="100%"
+        autoplay
+        loop
+        muted
+        playsinline
+        #videoloader
+      >
+        <!-- <source
+        src="../assets/videos/loader2.mp4"
+        type="video/mp4"
+        codecs="hvc1"
+      /> -->
+        <source
+          src="../../../../../assets/videos/loaders/v2/getprojects.webm"
+          type="video/webm"
+        />
+      </video>
+    </div>
+  </ng-container>
+  <ng-template #projectsTemplate>
+    <app-project-card
+      *ngFor="let project of projects"
+      [project]="project"
+    ></app-project-card>
+  </ng-template>
 </div>

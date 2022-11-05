@@ -29,32 +29,32 @@
             <div class="title">Основное</div>
             <div class="description">
               Очень важно заполнить информацию этого раздела в полном объеме, от
-              нее будет зависеть корректность подбора специалистов для вашего
-              проекта, на основе Машинного Обучения
+              нее будет зависеть корректность подбора специалистов для вашей
+              идеи, на основе Машинного Обучения
             </div>
           </div>
           <div class="form">
             <div class="form__section">
               <div class="width-50">
                 <mat-form-field appearance="fill" required>
-                  <mat-label>Название проекта</mat-label>
+                  <mat-label>Название идеи</mat-label>
                   <input matInput type="text" formControlName="projectName" />
                 </mat-form-field>
               </div>
               <div class="width-50">
                 <mat-form-field appearance="fill">
-                  <mat-label>Ссылка на проект </mat-label>
+                  <mat-label>Ссылка на идею </mat-label>
                   <input matInput type="text" formControlName="projectLink" />
                 </mat-form-field>
               </div>
             </div>
             <div class="header">
-              <div class="title">Опишите цели и задачи вашего проекта*</div>
+              <div class="title">Опишите цели и задачи вашей идеи*</div>
             </div>
             <div class="form__section">
               <div class="width-100 h-100">
                 <mat-form-field appearance="fill">
-                  <mat-label>Описание проекта</mat-label>
+                  <mat-label>Описание идеи</mat-label>
                   <textarea
                     formControlName="projectDescription"
                     matInput
@@ -68,7 +68,7 @@
         </div>
         <div class="header">
           <div class="title">
-            Выберите темы, которые наиболее точно характеризуют Ваш проект,
+            Выберите темы, которые наиболее точно характеризуют Вашу идею,
             например: робототехника, финтех, биотехнологии
           </div>
         </div>
@@ -76,7 +76,7 @@
           <div class="width-100">
             <app-pillbar-input
               formControlName="projectTags"
-              label="Интересующие темы*"
+              label="Темы проекта*"
               [possibleValues]="tags"
             ></app-pillbar-input>
           </div>

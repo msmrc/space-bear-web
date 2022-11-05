@@ -13,6 +13,7 @@ import { AppStore } from 'src/app/store/app.store';
 })
 export class ProjectListComponent implements OnInit {
 
+  public isProjectsLoading: boolean = true;
   public projects: ProjectInterface[] = []
 
   constructor(
@@ -22,11 +23,12 @@ export class ProjectListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.appStore.setPageTitle('Лента Проектов');
+    this.appStore.setPageTitle('Лента Идей');
 
     this.projectService.getAllProjects().pipe(
       tap((projects) => {
         this.projects = projects;
+        this.isProjectsLoading = false;
         this.cdr.detectChanges();
       })
     ).subscribe();

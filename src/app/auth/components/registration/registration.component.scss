@@ -15,14 +15,14 @@
     gap: 8px;
 
     img {
-      width: 160px;
+      width: 220px;
     }
 
     p {
       font-weight: 500;
       font-size: 20px;
       line-height: 25px;
-      color: #000000;
+      color: #FFFFFF;
     }
   }
 
@@ -37,4 +37,14 @@
   display: flex;
   flex-direction: row;
   gap: 8px;
+}
+
+.terms_text {
+  color: #FFFFFF;
+}
+
+.registration {
+  a {
+    color: #FFFFFF;
+  }
 }

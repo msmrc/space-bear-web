@@ -1,11 +1,11 @@
-$tag-border-color: #D9D9D9;
+$tag-border-color: #fe0046;
 
 .tag {
   user-select: none;
 
   height: 34px;
   padding: 0 14px;
-  background-color: #fff;
+  background-color: #2C274F;
 
   border-radius: 6px;
   border: 1px solid $tag-border-color;
@@ -16,8 +16,10 @@ $tag-border-color: #D9D9D9;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  color: #ffffff;
 }
 
 .selected {
-  background: #ffead0;
+  background: #0066ff;
 }

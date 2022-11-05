@@ -18,6 +18,8 @@
     align-items: center;
 
     .logo {
+      cursor: pointer;
+      width: 200px;
       display: flex;
       flex-direction: row;
       gap: 10px;
