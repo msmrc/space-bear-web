@@ -17,3 +17,5 @@ Space Bear Web - клиент, для сервиса, созданный для 
 https://disk.yandex.ru/i/BrwAalGz5PA2gA
 
 # Презентация
+
+https://disk.yandex.ru/i/y6KfAW3zwtCHqw
