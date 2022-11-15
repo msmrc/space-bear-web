@@ -77,7 +77,7 @@ export class ProjectDetailsComponent implements OnInit {
   public checkDislike(): boolean {
     const rate = this.fullProject.rate
     if (rate && rate.length > 0) {
-      const existAction = rate?.filter(x => x.fullProfileId._id === this.currentProfileId)[0];
+      const existAction = rate?.filter(x => x.fullProfileId?._id === this.currentProfileId)[0];
       if (existAction && existAction.count < 0) {
         return true;
       }
@@ -89,7 +89,7 @@ export class ProjectDetailsComponent implements OnInit {
   public checkLike(): boolean {
     const rate = this.fullProject.rate
     if (rate && rate.length > 0) {
-      const existAction = rate?.filter(x => x.fullProfileId._id === this.currentProfileId)[0];
+      const existAction = rate?.filter(x => x.fullProfileId?._id === this.currentProfileId)[0];
       if (existAction && existAction.count > 0) {
         return true;
       }
